@@ -4,10 +4,13 @@
  */
 package Graficos;
 
+import Alimentación.Camarones;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
 import java.util.TimerTask;
 import java.util.Timer;
 import javax.swing.UIManager;
+import tamagotchi.Cronometro;
 import tamagotchi.Ornitorrinco;
 
 /**
@@ -16,34 +19,45 @@ import tamagotchi.Ornitorrinco;
  */
 public class JuegoPrincipal extends javax.swing.JFrame {
 //ATRIBUTOS------------------------------------
-private String Nombre;
+
+    private String Nombre;
+    Cronometro cron;
 //OBJECTOS-------------------------------------
-Ornitorrinco or = new Ornitorrinco(Nombre);
+    Ornitorrinco or = new Ornitorrinco(Nombre);
+    Camarones cam= new Camarones();
 //---------------------------------------------
+
     /**
      * Creates new form JuegoPrincipal
      */
     public JuegoPrincipal() {
         initComponents();
         deshabilitarBotones();
+        barrasBar();
+        cron = new Cronometro();
+        timer.start();
+
+    }
+    javax.swing.Timer timer = new javax.swing.Timer(1000, (ActionEvent e) -> {
+        //this.tiempo.setText(cron.toString());
+        this.cron.contar();
+    });
+
+    private void barrasBar() {
         this.pSalud.setValue(or.getSalud());
         this.pAburrimiento.setValue(or.getAburrimiento());
         this.pEnergía.setValue(or.getEnergía());
         this.pHambre.setValue(or.getHambre());
-        
-   
     }
-    
-private void ocultar(){
 
-}
-private void deshabilitarBotones(){
-this.btnAlgas.setEnabled(false);
-this.btnCamarones.setEnabled(false);
-this.btnMoluzco.setEnabled(false);
-this.btnPez.setEnabled(false);
-this.btnRenacuajo.setEnabled(false);
-}
+    private void deshabilitarBotones() {
+        this.btnAlgas.setEnabled(false);
+        this.btnCamarones.setEnabled(false);
+        this.btnMoluzco.setEnabled(false);
+        this.btnPez.setEnabled(false);
+        this.btnRenacuajo.setEnabled(false);
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -75,6 +89,11 @@ this.btnRenacuajo.setEnabled(false);
 
         btnCamarones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/camarones.png"))); // NOI18N
         btnCamarones.setContentAreaFilled(false);
+        btnCamarones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCamaronesActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnCamarones, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
 
         btnRenacuajo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/renacuajo.png"))); // NOI18N
@@ -157,6 +176,10 @@ this.btnRenacuajo.setEnabled(false);
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnCamaronesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCamaronesActionPerformed
+        
+    }//GEN-LAST:event_btnCamaronesActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -213,6 +236,4 @@ this.btnRenacuajo.setEnabled(false);
         this.Nombre = Nombre;
     }
 
-    
-   
 }
