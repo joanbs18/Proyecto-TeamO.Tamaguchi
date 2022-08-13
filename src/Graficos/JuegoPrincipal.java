@@ -4,6 +4,8 @@
  */
 package Graficos;
 
+import java.awt.Color;
+import javax.swing.UIManager;
 import tamagotchi.Ornitorrinco;
 
 /**
@@ -21,6 +23,12 @@ Ornitorrinco or = new Ornitorrinco(Nombre);
      */
     public JuegoPrincipal() {
         initComponents();
+        this.pSalud.setValue(or.getSalud());
+        this.pAburrimiento.setValue(or.getAburrimiento());
+        this.pEnergía.setValue(or.getEnergía());
+        this.pHambre.setValue(or.getHambre());
+       
+        
     }
     
 private void ocultar(){
@@ -36,6 +44,11 @@ private void ocultar(){
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        btnComprar = new javax.swing.JButton();
+        pHambre = new javax.swing.JProgressBar();
+        pEnergía = new javax.swing.JProgressBar();
+        pAburrimiento = new javax.swing.JProgressBar();
+        pSalud = new javax.swing.JProgressBar();
         Brilo = new javax.swing.JLabel();
         Huevo = new javax.swing.JLabel();
         fondoDia = new javax.swing.JLabel();
@@ -44,6 +57,47 @@ private void ocultar(){
         setResizable(false);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnComprar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconfinder-basket-4341280_120547.png"))); // NOI18N
+        btnComprar.setContentAreaFilled(false);
+        btnComprar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/comprar-verde.png"))); // NOI18N
+        jPanel1.add(btnComprar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 620, 100, 80));
+
+        pHambre.setBackground(new java.awt.Color(51, 255, 51));
+        pHambre.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        pHambre.setForeground(new java.awt.Color(255, 255, 255));
+        pHambre.setToolTipText("");
+        pHambre.setOpaque(false);
+        pHambre.setString("HAMBRE");
+        pHambre.setStringPainted(true);
+        jPanel1.add(pHambre, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 10, 170, 20));
+
+        pEnergía.setBackground(new java.awt.Color(51, 255, 51));
+        pEnergía.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        pEnergía.setForeground(new java.awt.Color(255, 255, 255));
+        pEnergía.setToolTipText("");
+        pEnergía.setOpaque(false);
+        pEnergía.setString("ENERGÍA");
+        pEnergía.setStringPainted(true);
+        jPanel1.add(pEnergía, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 10, 170, 20));
+
+        pAburrimiento.setBackground(new java.awt.Color(51, 255, 51));
+        pAburrimiento.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        pAburrimiento.setForeground(new java.awt.Color(255, 255, 255));
+        pAburrimiento.setToolTipText("");
+        pAburrimiento.setOpaque(false);
+        pAburrimiento.setString("ABURRIMIENTO");
+        pAburrimiento.setStringPainted(true);
+        jPanel1.add(pAburrimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, 170, 20));
+
+        pSalud.setBackground(new java.awt.Color(51, 255, 51));
+        pSalud.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        pSalud.setForeground(new java.awt.Color(255, 255, 255));
+        pSalud.setToolTipText("");
+        pSalud.setOpaque(false);
+        pSalud.setString("SALUD");
+        pSalud.setStringPainted(true);
+        jPanel1.add(pSalud, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 170, 20));
 
         Brilo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/brillo.gif"))); // NOI18N
         jPanel1.add(Brilo, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 330, 370, 360));
@@ -106,8 +160,13 @@ private void ocultar(){
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Brilo;
     private javax.swing.JLabel Huevo;
+    private javax.swing.JButton btnComprar;
     private javax.swing.JLabel fondoDia;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JProgressBar pAburrimiento;
+    private javax.swing.JProgressBar pEnergía;
+    private javax.swing.JProgressBar pHambre;
+    private javax.swing.JProgressBar pSalud;
     // End of variables declaration//GEN-END:variables
 
     public void setNombre(String Nombre) {
