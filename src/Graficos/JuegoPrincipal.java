@@ -9,7 +9,7 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.util.TimerTask;
 import java.util.Timer;
-import javax.swing.UIManager;
+
 import tamagotchi.Cronometro;
 import tamagotchi.Ornitorrinco;
 
@@ -22,9 +22,10 @@ public class JuegoPrincipal extends javax.swing.JFrame {
 
     private String Nombre;
     Cronometro cron;
+    static int cont = 0;
 //OBJECTOS-------------------------------------
     Ornitorrinco or = new Ornitorrinco(Nombre);
-    Camarones cam= new Camarones();
+    Camarones cam = new Camarones();
 //---------------------------------------------
 
     /**
@@ -52,7 +53,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
 
     private void deshabilitarBotones() {
         this.btnAlgas.setEnabled(false);
-        this.btnCamarones.setEnabled(false);
+        this.btnCamarones.setEnabled(true);
         this.btnMoluzco.setEnabled(false);
         this.btnPez.setEnabled(false);
         this.btnRenacuajo.setEnabled(false);
@@ -177,7 +178,28 @@ public class JuegoPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCamaronesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCamaronesActionPerformed
-        
+///OCULTA EL BOTON DE CAMARONES
+     or.setHambre(cam.getCantidadDeAlimentación());
+        int tiempo = 10 * 1000;
+        Timer timer;
+        TimerTask timerTask = new TimerTask() {
+            @Override
+            public void run() {
+                switch (cont) {
+                    case 0:
+                        cont++;
+                        btnCamarones.setEnabled(false);
+                        break;
+                    case 1:
+                        cont = 0;
+                        btnCamarones.setEnabled(true);
+                        break;
+                }
+            }
+        };
+
+        timer = new Timer();
+        timer.schedule(timerTask, 0, tiempo);
     }//GEN-LAST:event_btnCamaronesActionPerformed
 
     /**
