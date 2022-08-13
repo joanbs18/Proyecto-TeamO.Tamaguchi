@@ -5,6 +5,8 @@
 package Graficos;
 
 import java.awt.Color;
+import java.util.TimerTask;
+import java.util.Timer;
 import javax.swing.UIManager;
 import tamagotchi.Ornitorrinco;
 
@@ -23,16 +25,24 @@ Ornitorrinco or = new Ornitorrinco(Nombre);
      */
     public JuegoPrincipal() {
         initComponents();
+        deshabilitarBotones();
         this.pSalud.setValue(or.getSalud());
         this.pAburrimiento.setValue(or.getAburrimiento());
         this.pEnergía.setValue(or.getEnergía());
         this.pHambre.setValue(or.getHambre());
-       
         
+   
     }
     
 private void ocultar(){
 
+}
+private void deshabilitarBotones(){
+this.btnAlgas.setEnabled(false);
+this.btnCamarones.setEnabled(false);
+this.btnMoluzco.setEnabled(false);
+this.btnPez.setEnabled(false);
+this.btnRenacuajo.setEnabled(false);
 }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -44,6 +54,11 @@ private void ocultar(){
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        btnCamarones = new javax.swing.JButton();
+        btnRenacuajo = new javax.swing.JButton();
+        btnAlgas = new javax.swing.JButton();
+        btnMoluzco = new javax.swing.JButton();
+        btnPez = new javax.swing.JButton();
         btnComprar = new javax.swing.JButton();
         pHambre = new javax.swing.JProgressBar();
         pEnergía = new javax.swing.JProgressBar();
@@ -57,6 +72,26 @@ private void ocultar(){
         setResizable(false);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnCamarones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/camarones.png"))); // NOI18N
+        btnCamarones.setContentAreaFilled(false);
+        jPanel1.add(btnCamarones, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
+
+        btnRenacuajo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/renacuajo.png"))); // NOI18N
+        btnRenacuajo.setContentAreaFilled(false);
+        jPanel1.add(btnRenacuajo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, -1));
+
+        btnAlgas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/algas.png"))); // NOI18N
+        btnAlgas.setContentAreaFilled(false);
+        jPanel1.add(btnAlgas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, -1, -1));
+
+        btnMoluzco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/moluzcos.png"))); // NOI18N
+        btnMoluzco.setContentAreaFilled(false);
+        jPanel1.add(btnMoluzco, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, -1, -1));
+
+        btnPez.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/pez.png"))); // NOI18N
+        btnPez.setContentAreaFilled(false);
+        jPanel1.add(btnPez, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 530, -1, -1));
 
         btnComprar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconfinder-basket-4341280_120547.png"))); // NOI18N
         btnComprar.setContentAreaFilled(false);
@@ -160,7 +195,12 @@ private void ocultar(){
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Brilo;
     private javax.swing.JLabel Huevo;
+    private javax.swing.JButton btnAlgas;
+    private javax.swing.JButton btnCamarones;
     private javax.swing.JButton btnComprar;
+    private javax.swing.JButton btnMoluzco;
+    private javax.swing.JButton btnPez;
+    private javax.swing.JButton btnRenacuajo;
     private javax.swing.JLabel fondoDia;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JProgressBar pAburrimiento;
@@ -173,4 +213,6 @@ private void ocultar(){
         this.Nombre = Nombre;
     }
 
+    
+   
 }
