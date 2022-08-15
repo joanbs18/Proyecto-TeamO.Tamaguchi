@@ -4,11 +4,15 @@
  */
 package Graficos;
 
+import Alimentación.Algas;
 import Alimentación.Camarones;
-import java.awt.Color;
+import Alimentación.Moluzcos;
+import Alimentación.Pez;
+import Alimentación.Renacuajos;
 import java.awt.event.ActionEvent;
 import java.util.TimerTask;
 import java.util.Timer;
+import javax.swing.JButton;
 
 import tamagotchi.Cronometro;
 import tamagotchi.Ornitorrinco;
@@ -26,6 +30,12 @@ public class JuegoPrincipal extends javax.swing.JFrame {
 //OBJECTOS-------------------------------------
     Ornitorrinco or = new Ornitorrinco(Nombre);
     Camarones cam = new Camarones();
+    Renacuajos ren= new Renacuajos();
+    Algas  al= new Algas();
+    Moluzcos mol= new Moluzcos();
+    Pez pez=new Pez();
+    
+    
 //---------------------------------------------
 
     /**
@@ -74,7 +84,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
         btnAlgas = new javax.swing.JButton();
         btnMoluzco = new javax.swing.JButton();
         btnPez = new javax.swing.JButton();
-        btnComprar = new javax.swing.JButton();
+        btnMedicina = new javax.swing.JButton();
         pHambre = new javax.swing.JProgressBar();
         pEnergía = new javax.swing.JProgressBar();
         pAburrimiento = new javax.swing.JProgressBar();
@@ -99,24 +109,44 @@ public class JuegoPrincipal extends javax.swing.JFrame {
 
         btnRenacuajo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/renacuajo.png"))); // NOI18N
         btnRenacuajo.setContentAreaFilled(false);
+        btnRenacuajo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRenacuajoActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnRenacuajo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, -1));
 
         btnAlgas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/algas.png"))); // NOI18N
         btnAlgas.setContentAreaFilled(false);
+        btnAlgas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlgasActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnAlgas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, -1, -1));
 
         btnMoluzco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/moluzcos.png"))); // NOI18N
         btnMoluzco.setContentAreaFilled(false);
+        btnMoluzco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMoluzcoActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnMoluzco, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, -1, -1));
 
         btnPez.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/pez.png"))); // NOI18N
         btnPez.setContentAreaFilled(false);
+        btnPez.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPezActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnPez, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 530, -1, -1));
 
-        btnComprar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconfinder-basket-4341280_120547.png"))); // NOI18N
-        btnComprar.setContentAreaFilled(false);
-        btnComprar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/comprar-verde.png"))); // NOI18N
-        jPanel1.add(btnComprar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 620, 100, 80));
+        btnMedicina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconfinder-basket-4341280_120547.png"))); // NOI18N
+        btnMedicina.setContentAreaFilled(false);
+        btnMedicina.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/comprar-verde.png"))); // NOI18N
+        jPanel1.add(btnMedicina, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 620, 100, 80));
 
         pHambre.setBackground(new java.awt.Color(51, 255, 51));
         pHambre.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
@@ -179,28 +209,59 @@ public class JuegoPrincipal extends javax.swing.JFrame {
 
     private void btnCamaronesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCamaronesActionPerformed
 ///OCULTA EL BOTON DE CAMARONES
-     or.setHambre(cam.getCantidadDeAlimentación());
-        int tiempo = 10 * 1000;
+        or.setHambre(cam.getCantidadDeAlimentación());
+        tiempoOcultar(this.btnCamarones,cam.getTiempo());
+
+
+    }//GEN-LAST:event_btnCamaronesActionPerformed
+
+    private void btnRenacuajoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRenacuajoActionPerformed
+        or.setHambre(ren.getCantidadDeAlimentación());
+        tiempoOcultar(this.btnRenacuajo,ren.getTiempo());
+    }//GEN-LAST:event_btnRenacuajoActionPerformed
+
+    private void btnAlgasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlgasActionPerformed
+       or.setHambre(al.getCantidadDeAlimentación());
+        tiempoOcultar(this.btnAlgas,al.getTiempo());
+    }//GEN-LAST:event_btnAlgasActionPerformed
+
+    private void btnMoluzcoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoluzcoActionPerformed
+        or.setHambre(mol.getCantidadDeAlimentación());
+        tiempoOcultar(this.btnMoluzco,mol.getTiempo());
+    }//GEN-LAST:event_btnMoluzcoActionPerformed
+
+    private void btnPezActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPezActionPerformed
+       or.setHambre(pez.getCantidadDeAlimentación());
+        tiempoOcultar(this.btnPez,pez.getTiempo());
+    }//GEN-LAST:event_btnPezActionPerformed
+    private void tiempoOcultar(JButton boton, int time) {
+        int tiempo =  time* 1000;
         Timer timer;
         TimerTask timerTask = new TimerTask() {
+
             @Override
             public void run() {
                 switch (cont) {
                     case 0:
                         cont++;
-                        btnCamarones.setEnabled(false);
+                        boton.setEnabled(false);
                         break;
                     case 1:
+                        cancel();
                         cont = 0;
-                        btnCamarones.setEnabled(true);
+                        boton.setEnabled(true);
+
                         break;
+
                 }
+
             }
+
         };
 
         timer = new Timer();
         timer.schedule(timerTask, 0, tiempo);
-    }//GEN-LAST:event_btnCamaronesActionPerformed
+    }
 
     /**
      * @param args the command line arguments
@@ -242,7 +303,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel Huevo;
     private javax.swing.JButton btnAlgas;
     private javax.swing.JButton btnCamarones;
-    private javax.swing.JButton btnComprar;
+    private javax.swing.JButton btnMedicina;
     private javax.swing.JButton btnMoluzco;
     private javax.swing.JButton btnPez;
     private javax.swing.JButton btnRenacuajo;
