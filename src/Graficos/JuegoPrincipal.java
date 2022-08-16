@@ -77,6 +77,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
         //-------------------------jlabel-----------------------
         this.Bebe.setVisible(false);
         this.Joven.setVisible(false);
+        this.JEnfermo.setVisible(false);
     }
 
     private void habilitarBotones(int contadorDías) {
@@ -109,6 +110,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        JEnfermo = new javax.swing.JLabel();
         Joven = new javax.swing.JLabel();
         tEdad = new javax.swing.JLabel();
         Bebe = new javax.swing.JLabel();
@@ -131,6 +133,9 @@ public class JuegoPrincipal extends javax.swing.JFrame {
         setResizable(false);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        JEnfermo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/termometro (1).gif"))); // NOI18N
+        jPanel1.add(JEnfermo, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 330, 610, 410));
 
         Joven.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Joven.gif"))); // NOI18N
         jPanel1.add(Joven, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 330, 730, 350));
@@ -358,6 +363,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel Bebe;
     private javax.swing.JLabel Brilo;
     private javax.swing.JLabel Huevo;
+    private javax.swing.JLabel JEnfermo;
     private javax.swing.JLabel Joven;
     private javax.swing.JButton btnAlgas;
     private javax.swing.JButton btnCamarones;
@@ -442,6 +448,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
         if (contador == 3) {
             contaS=0;
             or.setHambre(15);
+            bajasEnSalud();
             barrasBar();
             System.out.println(or.getHambre());
             if (or.getHambre() >= 90) {
@@ -452,14 +459,12 @@ public class JuegoPrincipal extends javax.swing.JFrame {
         
 
     }
-    private void bajasEnSalud(int contador){
+    private void bajasEnSalud(){
     if (or.getHambre()>60) {
-            contaS=0;
-            or.setHambre(15);
+            or.setSalud(30);
             barrasBar();
-            System.out.println(or.getHambre());
-            if (or.getHambre() >= 90) {
-                JOptionPane.showMessageDialog(rootPane, "Tiene Hambre");
+            if (or.getSalud() <=10) {
+                JOptionPane.showMessageDialog(rootPane, "Problemas en Salud");
             }
 
         }
