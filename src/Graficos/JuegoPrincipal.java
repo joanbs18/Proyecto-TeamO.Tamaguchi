@@ -13,6 +13,7 @@ import java.awt.event.ActionEvent;
 import java.util.TimerTask;
 import java.util.Timer;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 
 import tamagotchi.Cronometro;
 import tamagotchi.Ornitorrinco;
@@ -24,29 +25,33 @@ import tamagotchi.Ornitorrinco;
 public class JuegoPrincipal extends javax.swing.JFrame {
 //ATRIBUTOS------------------------------------
 
+    private int contadorDías;
     private String Nombre;
     Cronometro cron;
-    static int cont = 0;
+    static int cont = 0;//ES PARA BOTONES
+    static int conte = 0;//ES PARA MOSTRAR LAS EDADES
+    static int conta = 0;//ES PARA MOSTRAR LAS EDADES
 //OBJECTOS-------------------------------------
     Ornitorrinco or = new Ornitorrinco(Nombre);
     Camarones cam = new Camarones();
-    Renacuajos ren= new Renacuajos();
-    Algas  al= new Algas();
-    Moluzcos mol= new Moluzcos();
-    Pez pez=new Pez();
-    
-    
-//---------------------------------------------
+    Renacuajos ren = new Renacuajos();
+    Algas al = new Algas();
+    Moluzcos mol = new Moluzcos();
+    Pez pez = new Pez();
 
+//---------------------------------------------
     /**
      * Creates new form JuegoPrincipal
      */
     public JuegoPrincipal() {
         initComponents();
         deshabilitarBotones();
-        barrasBar();
+         MostrarDiaNoche(this.fondoDia, this.fondoNoche); // Esto hace un cambio de dia a noche y viceversa
+       barrasBar();
         cron = new Cronometro();
         timer.start();
+        
+        
 
     }
     javax.swing.Timer timer = new javax.swing.Timer(1000, (ActionEvent e) -> {
@@ -59,14 +64,38 @@ public class JuegoPrincipal extends javax.swing.JFrame {
         this.pAburrimiento.setValue(or.getAburrimiento());
         this.pEnergía.setValue(or.getEnergía());
         this.pHambre.setValue(or.getHambre());
+       
     }
 
     private void deshabilitarBotones() {
         this.btnAlgas.setEnabled(false);
-        this.btnCamarones.setEnabled(true);
+        this.btnCamarones.setEnabled(false);
         this.btnMoluzco.setEnabled(false);
         this.btnPez.setEnabled(false);
         this.btnRenacuajo.setEnabled(false);
+    }
+     private void habilitarBotones(int contadorDías) {
+         if(contadorDías==2){
+         this.btnCamarones.setEnabled(true);
+         
+         }
+         if(contadorDías==3){
+         this.btnRenacuajo.setEnabled(true);
+         }
+         if(contadorDías==4){
+         this.btnAlgas.setEnabled(true);
+         }
+         if(contadorDías==15){
+         this.btnMoluzco.setEnabled(true);
+         }
+         if(contadorDías==16){
+         this.btnPez.setEnabled(true);
+         }
+        
+        
+        
+        
+        
     }
 
     /**
@@ -79,6 +108,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        Bebe = new javax.swing.JLabel();
         btnCamarones = new javax.swing.JButton();
         btnRenacuajo = new javax.swing.JButton();
         btnAlgas = new javax.swing.JButton();
@@ -92,11 +122,15 @@ public class JuegoPrincipal extends javax.swing.JFrame {
         Brilo = new javax.swing.JLabel();
         Huevo = new javax.swing.JLabel();
         fondoDia = new javax.swing.JLabel();
+        fondoNoche = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Bebe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/bebe3.gif"))); // NOI18N
+        jPanel1.add(Bebe, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 290, 550, 490));
 
         btnCamarones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/camarones.png"))); // NOI18N
         btnCamarones.setContentAreaFilled(false);
@@ -193,6 +227,9 @@ public class JuegoPrincipal extends javax.swing.JFrame {
         fondoDia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.jpg"))); // NOI18N
         jPanel1.add(fondoDia, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
 
+        fondoNoche.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo4.jpg"))); // NOI18N
+        jPanel1.add(fondoNoche, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -210,47 +247,48 @@ public class JuegoPrincipal extends javax.swing.JFrame {
     private void btnCamaronesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCamaronesActionPerformed
 ///OCULTA EL BOTON DE CAMARONES
         or.setHambre(cam.getCantidadDeAlimentación());
-        tiempoOcultar(this.btnCamarones,cam.getTiempo());
+        tiempoOcultar(this.btnCamarones, cam.getTiempo());
+        System.out.println(cam.getTiempo());
 
 
     }//GEN-LAST:event_btnCamaronesActionPerformed
 
     private void btnRenacuajoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRenacuajoActionPerformed
         or.setHambre(ren.getCantidadDeAlimentación());
-        tiempoOcultar(this.btnRenacuajo,ren.getTiempo());
+        tiempoOcultar(this.btnRenacuajo, ren.getTiempo());
     }//GEN-LAST:event_btnRenacuajoActionPerformed
 
     private void btnAlgasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlgasActionPerformed
-       or.setHambre(al.getCantidadDeAlimentación());
-        tiempoOcultar(this.btnAlgas,al.getTiempo());
+        or.setHambre(al.getCantidadDeAlimentación());
+        tiempoOcultar(this.btnAlgas, al.getTiempo());
     }//GEN-LAST:event_btnAlgasActionPerformed
 
     private void btnMoluzcoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoluzcoActionPerformed
         or.setHambre(mol.getCantidadDeAlimentación());
-        tiempoOcultar(this.btnMoluzco,mol.getTiempo());
+        tiempoOcultar(this.btnMoluzco, mol.getTiempo());
     }//GEN-LAST:event_btnMoluzcoActionPerformed
 
     private void btnPezActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPezActionPerformed
-       or.setHambre(pez.getCantidadDeAlimentación());
-        tiempoOcultar(this.btnPez,pez.getTiempo());
+        or.setHambre(pez.getCantidadDeAlimentación());
+        tiempoOcultar(this.btnPez, pez.getTiempo());
     }//GEN-LAST:event_btnPezActionPerformed
     private void tiempoOcultar(JButton boton, int time) {
-        int tiempo =  time* 1000;
+        int tiempo = time * 1000;
         Timer timer;
-        TimerTask timerTask = new TimerTask() {
-
+        TimerTask timerTask ;
+        timerTask = new TimerTask() {
+            
             @Override
             public void run() {
-                switch (cont) {
+                switch (conta) {
                     case 0:
-                        cont++;
+                        conta++;
                         boton.setEnabled(false);
                         break;
                     case 1:
-                        cancel();
-                        cont = 0;
+                        conta = 0;
                         boton.setEnabled(true);
-
+                        cancel();
                         break;
 
                 }
@@ -299,6 +337,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Bebe;
     private javax.swing.JLabel Brilo;
     private javax.swing.JLabel Huevo;
     private javax.swing.JButton btnAlgas;
@@ -308,6 +347,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnPez;
     private javax.swing.JButton btnRenacuajo;
     private javax.swing.JLabel fondoDia;
+    private javax.swing.JLabel fondoNoche;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JProgressBar pAburrimiento;
     private javax.swing.JProgressBar pEnergía;
@@ -319,4 +359,51 @@ public class JuegoPrincipal extends javax.swing.JFrame {
         this.Nombre = Nombre;
     }
 
+    private void MostrarDiaNoche(JLabel label1, JLabel label2) {
+        int tiempo = 1 * 10000;
+        Timer timer;
+        TimerTask timerTask = new TimerTask() {
+
+            @Override
+            public void run() {
+                
+                switch (cont) {
+                    
+                    case 0:
+                        cont++;
+                        label1.setVisible(true);
+                        label2.setVisible(false);
+                        contadorDías++;
+                        habilitarBotones(contadorDías);
+
+                        break;
+                    case 1:
+                        cont = 0;
+                        label1.setVisible(false);
+                        label2.setVisible(true);
+                      
+
+                        break;
+
+                }
+
+            }
+
+        };
+
+        timer = new Timer();
+        timer.schedule(timerTask, 0, tiempo);
+    }
+private void tipoEdad(){
+if (contadorDías==2){
+this.Huevo.setVisible(false);
+this.Brilo.setVisible(false);
 }
+if(contadorDías==2){
+
+}
+
+}
+}
+
+
