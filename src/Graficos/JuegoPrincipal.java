@@ -12,6 +12,7 @@ import Alimentación.Renacuajos;
 import java.awt.event.ActionEvent;
 import java.util.TimerTask;
 import java.util.Timer;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
@@ -73,6 +74,9 @@ public class JuegoPrincipal extends javax.swing.JFrame {
         this.btnMoluzco.setEnabled(false);
         this.btnPez.setEnabled(false);
         this.btnRenacuajo.setEnabled(false);
+        //-------------------------jlabel-----------------------
+        this.Bebe.setVisible(false);
+        this.Joven.setVisible(false);
     }
      private void habilitarBotones(int contadorDías) {
          if(contadorDías==2){
@@ -108,6 +112,8 @@ public class JuegoPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        Joven = new javax.swing.JLabel();
+        tEdad = new javax.swing.JLabel();
         Bebe = new javax.swing.JLabel();
         btnCamarones = new javax.swing.JButton();
         btnRenacuajo = new javax.swing.JButton();
@@ -129,8 +135,15 @@ public class JuegoPrincipal extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Bebe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/bebe3.gif"))); // NOI18N
-        jPanel1.add(Bebe, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 290, 550, 490));
+        Joven.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Joven.gif"))); // NOI18N
+        jPanel1.add(Joven, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 330, 730, 350));
+
+        tEdad.setFont(new java.awt.Font("Ebrima", 1, 18)); // NOI18N
+        tEdad.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel1.add(tEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 120, 30));
+
+        Bebe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/bebe (1).gif"))); // NOI18N
+        jPanel1.add(Bebe, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 280, 550, 490));
 
         btnCamarones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/camarones.png"))); // NOI18N
         btnCamarones.setContentAreaFilled(false);
@@ -189,7 +202,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
         pHambre.setOpaque(false);
         pHambre.setString("HAMBRE");
         pHambre.setStringPainted(true);
-        jPanel1.add(pHambre, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 10, 170, 20));
+        jPanel1.add(pHambre, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 10, 170, 20));
 
         pEnergía.setBackground(new java.awt.Color(51, 255, 51));
         pEnergía.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
@@ -198,7 +211,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
         pEnergía.setOpaque(false);
         pEnergía.setString("ENERGÍA");
         pEnergía.setStringPainted(true);
-        jPanel1.add(pEnergía, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 10, 170, 20));
+        jPanel1.add(pEnergía, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 10, 170, 20));
 
         pAburrimiento.setBackground(new java.awt.Color(51, 255, 51));
         pAburrimiento.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
@@ -207,7 +220,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
         pAburrimiento.setOpaque(false);
         pAburrimiento.setString("ABURRIMIENTO");
         pAburrimiento.setStringPainted(true);
-        jPanel1.add(pAburrimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, 170, 20));
+        jPanel1.add(pAburrimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, 170, 20));
 
         pSalud.setBackground(new java.awt.Color(51, 255, 51));
         pSalud.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
@@ -216,7 +229,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
         pSalud.setOpaque(false);
         pSalud.setString("SALUD");
         pSalud.setStringPainted(true);
-        jPanel1.add(pSalud, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 170, 20));
+        jPanel1.add(pSalud, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, 170, 20));
 
         Brilo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/brillo.gif"))); // NOI18N
         jPanel1.add(Brilo, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 330, 370, 360));
@@ -340,6 +353,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel Bebe;
     private javax.swing.JLabel Brilo;
     private javax.swing.JLabel Huevo;
+    private javax.swing.JLabel Joven;
     private javax.swing.JButton btnAlgas;
     private javax.swing.JButton btnCamarones;
     private javax.swing.JButton btnMedicina;
@@ -353,6 +367,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
     private javax.swing.JProgressBar pEnergía;
     private javax.swing.JProgressBar pHambre;
     private javax.swing.JProgressBar pSalud;
+    private javax.swing.JLabel tEdad;
     // End of variables declaration//GEN-END:variables
 
     public void setNombre(String Nombre) {
@@ -375,6 +390,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
                         label2.setVisible(false);
                         contadorDías++;
                         habilitarBotones(contadorDías);
+                        tipoEdad(contadorDías);
 
                         break;
                     case 1:
@@ -394,15 +410,27 @@ public class JuegoPrincipal extends javax.swing.JFrame {
         timer = new Timer();
         timer.schedule(timerTask, 0, tiempo);
     }
-private void tipoEdad(){
+private void tipoEdad(int contadorDías){
 if (contadorDías==2){
 this.Huevo.setVisible(false);
 this.Brilo.setVisible(false);
+this.Bebe.setVisible(true);
+this.tEdad.setText(or.EdadMascota(0));
 }
-if(contadorDías==2){
+if(contadorDías==6){
+this.Bebe.setVisible(true);
 
+this.tEdad.setText(or.EdadMascota(1));
 }
-
+if(contadorDías==10){
+this.Bebe.setVisible(false);
+this.Joven.setVisible(true);
+this.tEdad.setText(or.EdadMascota(2));  
+}
+if(contadorDías==15){
+this.Joven.setVisible(false);
+this.tEdad.setText(or.EdadMascota(3));  
+}
 }
 }
 
