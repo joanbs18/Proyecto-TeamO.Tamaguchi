@@ -15,6 +15,7 @@ import java.util.Timer;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 import tamagotchi.Cronometro;
 import tamagotchi.Ornitorrinco;
@@ -32,6 +33,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
     static int cont = 0;//ES PARA BOTONES
     static int conte = 0;//ES PARA MOSTRAR LAS EDADES
     static int conta = 0;//ES PARA MOSTRAR LAS EDADES
+    static int contaS = 0;//ES PARA MOSTRAR LAS EDADES
 //OBJECTOS-------------------------------------
     Ornitorrinco or = new Ornitorrinco(Nombre);
     Camarones cam = new Camarones();
@@ -47,12 +49,10 @@ public class JuegoPrincipal extends javax.swing.JFrame {
     public JuegoPrincipal() {
         initComponents();
         deshabilitarBotones();
-         MostrarDiaNoche(this.fondoDia, this.fondoNoche); // Esto hace un cambio de dia a noche y viceversa
-       barrasBar();
+        MostrarDiaNoche(this.fondoDia, this.fondoNoche); // Esto hace un cambio de dia a noche y viceversa
+        barrasBar();
         cron = new Cronometro();
         timer.start();
-        
-        
 
     }
     javax.swing.Timer timer = new javax.swing.Timer(1000, (ActionEvent e) -> {
@@ -65,7 +65,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
         this.pAburrimiento.setValue(or.getAburrimiento());
         this.pEnergía.setValue(or.getEnergía());
         this.pHambre.setValue(or.getHambre());
-       
+
     }
 
     private void deshabilitarBotones() {
@@ -78,28 +78,25 @@ public class JuegoPrincipal extends javax.swing.JFrame {
         this.Bebe.setVisible(false);
         this.Joven.setVisible(false);
     }
-     private void habilitarBotones(int contadorDías) {
-         if(contadorDías==2){
-         this.btnCamarones.setEnabled(true);
-         
-         }
-         if(contadorDías==3){
-         this.btnRenacuajo.setEnabled(true);
-         }
-         if(contadorDías==4){
-         this.btnAlgas.setEnabled(true);
-         }
-         if(contadorDías==15){
-         this.btnMoluzco.setEnabled(true);
-         }
-         if(contadorDías==16){
-         this.btnPez.setEnabled(true);
-         }
-        
-        
-        
-        
-        
+
+    private void habilitarBotones(int contadorDías) {
+        if (contadorDías == 2) {
+            this.btnCamarones.setEnabled(true);
+
+        }
+        if (contadorDías == 3) {
+            this.btnRenacuajo.setEnabled(true);
+        }
+        if (contadorDías == 4) {
+            this.btnAlgas.setEnabled(true);
+        }
+        if (contadorDías == 15) {
+            this.btnMoluzco.setEnabled(true);
+        }
+        if (contadorDías == 16) {
+            this.btnPez.setEnabled(true);
+        }
+
     }
 
     /**
@@ -259,9 +256,12 @@ public class JuegoPrincipal extends javax.swing.JFrame {
 
     private void btnCamaronesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCamaronesActionPerformed
 ///OCULTA EL BOTON DE CAMARONES
-        or.setHambre(cam.getCantidadDeAlimentación());
+        or.quitarHambre(cam.getCantidadDeAlimentación());
         tiempoOcultar(this.btnCamarones, cam.getTiempo());
         System.out.println(cam.getTiempo());
+        barrasBar();
+       
+        
 
 
     }//GEN-LAST:event_btnCamaronesActionPerformed
@@ -272,25 +272,30 @@ public class JuegoPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRenacuajoActionPerformed
 
     private void btnAlgasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlgasActionPerformed
-        or.setHambre(al.getCantidadDeAlimentación());
+        
+        or.quitarHambre(al.getCantidadDeAlimentación());
         tiempoOcultar(this.btnAlgas, al.getTiempo());
+        barrasBar();
     }//GEN-LAST:event_btnAlgasActionPerformed
 
     private void btnMoluzcoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoluzcoActionPerformed
-        or.setHambre(mol.getCantidadDeAlimentación());
+        or.quitarHambre(mol.getCantidadDeAlimentación());
         tiempoOcultar(this.btnMoluzco, mol.getTiempo());
+        barrasBar();
     }//GEN-LAST:event_btnMoluzcoActionPerformed
 
     private void btnPezActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPezActionPerformed
-        or.setHambre(pez.getCantidadDeAlimentación());
+        or.quitarHambre(pez.getCantidadDeAlimentación());
         tiempoOcultar(this.btnPez, pez.getTiempo());
+        barrasBar();
+        
     }//GEN-LAST:event_btnPezActionPerformed
     private void tiempoOcultar(JButton boton, int time) {
         int tiempo = time * 1000;
         Timer timer;
-        TimerTask timerTask ;
+        TimerTask timerTask;
         timerTask = new TimerTask() {
-            
+
             @Override
             public void run() {
                 switch (conta) {
@@ -381,23 +386,26 @@ public class JuegoPrincipal extends javax.swing.JFrame {
 
             @Override
             public void run() {
-                
+
                 switch (cont) {
-                    
+
                     case 0:
                         cont++;
                         label1.setVisible(true);
                         label2.setVisible(false);
                         contadorDías++;
+                        contaS++;
                         habilitarBotones(contadorDías);
                         tipoEdad(contadorDías);
+                        bajasEnHambre(contaS);
+                        System.out.println(contaS);
+                        
 
                         break;
                     case 1:
                         cont = 0;
                         label1.setVisible(false);
                         label2.setVisible(true);
-                      
 
                         break;
 
@@ -410,28 +418,50 @@ public class JuegoPrincipal extends javax.swing.JFrame {
         timer = new Timer();
         timer.schedule(timerTask, 0, tiempo);
     }
-private void tipoEdad(int contadorDías){
-if (contadorDías==2){
-this.Huevo.setVisible(false);
-this.Brilo.setVisible(false);
-this.Bebe.setVisible(true);
-this.tEdad.setText(or.EdadMascota(0));
-}
-if(contadorDías==6){
-this.Bebe.setVisible(true);
 
-this.tEdad.setText(or.EdadMascota(1));
-}
-if(contadorDías==10){
-this.Bebe.setVisible(false);
-this.Joven.setVisible(true);
-this.tEdad.setText(or.EdadMascota(2));  
-}
-if(contadorDías==15){
-this.Joven.setVisible(false);
-this.tEdad.setText(or.EdadMascota(3));  
-}
-}
-}
+    private void tipoEdad(int contadorDías) {//MUESTRA SI ES HUEVO,JOVEN,ADULTO
+        if (contadorDías == 2) {
+            this.Huevo.setVisible(false);
+            this.Brilo.setVisible(false);
+            this.Bebe.setVisible(true);
+            this.tEdad.setText(or.EdadMascota(1));
+        }
 
+        if (contadorDías == 10) {
+            this.Bebe.setVisible(false);
+            this.Joven.setVisible(true);
+            this.tEdad.setText(or.EdadMascota(3));
+        }
+        if (contadorDías == 15) {
+            this.Joven.setVisible(false);
+            this.tEdad.setText(or.EdadMascota(3));
+        }
+    }
 
+    private void bajasEnHambre(int contador) {
+        if (contador == 3) {
+            contaS=0;
+            or.setHambre(15);
+            barrasBar();
+            System.out.println(or.getHambre());
+            if (or.getHambre() >= 90) {
+                JOptionPane.showMessageDialog(rootPane, "Tiene Hambre");
+            }
+
+        }
+        
+
+    }
+    private void bajasEnSalud(int contador){
+    if (or.getHambre()>60) {
+            contaS=0;
+            or.setHambre(15);
+            barrasBar();
+            System.out.println(or.getHambre());
+            if (or.getHambre() >= 90) {
+                JOptionPane.showMessageDialog(rootPane, "Tiene Hambre");
+            }
+
+        }
+    }
+}
