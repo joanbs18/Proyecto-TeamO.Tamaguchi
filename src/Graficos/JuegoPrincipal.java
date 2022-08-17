@@ -119,6 +119,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
         btnBailar = new javax.swing.JButton();
         btnCorrer = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -146,6 +147,11 @@ public class JuegoPrincipal extends javax.swing.JFrame {
         setResizable(false);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/MEDICAMENTOBTN1.png"))); // NOI18N
+        jButton1.setContentAreaFilled(false);
+        jButton1.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/MEDICAMENTOBTN2.png"))); // NOI18N
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 620, -1, -1));
 
         btnBailar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/BAILARBTN1.png"))); // NOI18N
         btnBailar.setContentAreaFilled(false);
@@ -181,14 +187,14 @@ public class JuegoPrincipal extends javax.swing.JFrame {
         jPanel1.add(JEnfermo, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 340, 190, 400));
 
         Joven.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Joven.gif"))); // NOI18N
-        jPanel1.add(Joven, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 330, 730, 350));
+        jPanel1.add(Joven, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 340, 730, 350));
 
         tEdad.setFont(new java.awt.Font("Ebrima", 1, 18)); // NOI18N
         tEdad.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(tEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 120, 30));
 
         Bebe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/bebe (1).gif"))); // NOI18N
-        jPanel1.add(Bebe, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 280, 550, 490));
+        jPanel1.add(Bebe, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 280, 550, 430));
 
         btnCamarones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/camarones.png"))); // NOI18N
         btnCamarones.setContentAreaFilled(false);
@@ -416,6 +422,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnRenacuajo;
     private javax.swing.JLabel fondoDia;
     private javax.swing.JLabel fondoNoche;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
