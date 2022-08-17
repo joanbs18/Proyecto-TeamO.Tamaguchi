@@ -50,7 +50,6 @@ public class Medicamento_ {
     public Medicamento_() {
         this.Nombre= "Jarabe de Alga";
         this.CantidadDeSalud=200;
-        this.precio=400;
     }  
     
         
