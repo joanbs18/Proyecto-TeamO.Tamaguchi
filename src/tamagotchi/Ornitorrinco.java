@@ -42,11 +42,16 @@ public class Ornitorrinco {
     }
 
     public void setAburrimiento(int Aburrimiento) {
-        this.Aburrimiento = Aburrimiento;
+        if(this.Aburrimiento>=100){
+        this.Aburrimiento=100;
+        }else{
+        this.Aburrimiento += Aburrimiento;
+        }
+        
     }
 
     public void setEnergía(int Energía) {
-        if (this.Energía > 0) {
+        if (this.Energía < 0) {
             this.Energía = 0;
         } else {
             this.Energía -= Energía;
@@ -105,8 +110,8 @@ public class Ornitorrinco {
         if (this.Salud < 100) {
             this.Salud += salud;
         } else {
-            JOptionPane.showMessageDialog(null, "Esta bien de Salud");
-        }
+            JOptionPane.showMessageDialog(null, "Estas bien de Salud");
+        }   
     }
 
 public void subidaEnergía(int Energía){ //En caso de comer o alguna cosa que suba energía
@@ -117,5 +122,20 @@ JOptionPane.showMessageDialog(null, "Esta al maximo de energía");
 this.Energía+=Energía;
 }
 }
+public void bajarAburrimiento(int menosaAburrimiento){
+      if(this.Aburrimiento<0){
+        this.Aburrimiento=0;
+        }else{
+        this.Aburrimiento -= Aburrimiento;
+        }
+}
+public void subirEnergía(int Energía){
+if(this.Energía>=100){
+this.Energía=100;
+}else{
+this.Energía+=Energía;
+}
+}
+
 
 }
