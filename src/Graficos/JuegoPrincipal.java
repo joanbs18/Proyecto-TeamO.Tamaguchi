@@ -512,4 +512,19 @@ public class JuegoPrincipal extends javax.swing.JFrame {
     private void bajasEnEnergía(){
     
     }
+    
+    private void efectodeMedicamento(){
+        if (or.getSalud()<=20){
+            or.setSalud(45);
+        }
+         if (or.getAburrimiento()<=20){
+            or.setAburrimiento(45);
+        }
+          if (or.getEnergía()<=20){
+            or.setEnergía(45);
+        }
+           if (or.getHambre()<=20){
+            or.setHambre(45);
+        }
+    }
 }
