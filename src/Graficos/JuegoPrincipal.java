@@ -4,6 +4,7 @@
  */
 package Graficos;
 
+import Actividades.Bailar;
 import Alimentación.Algas;
 import Alimentación.Camarones;
 import Alimentación.Moluzcos;
@@ -38,6 +39,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
     static int conte = 0;//ES PARA MOSTRAR LAS EDADES
     static int conta = 0;//ES PARA MOSTRAR LAS EDADES
     static int contaS = 0;//ES PARA MOSTRAR LAS EDADES
+    static int contaSa = 0;//ES PARA MOSTRAR LAS ACTIVIDADES RECREATIVAS
 //OBJECTOS-------------------------------------
     Ornitorrinco or = new Ornitorrinco(Nombre);
     Camarones cam = new Camarones();
@@ -45,6 +47,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
     Algas al = new Algas();
     Moluzcos mol = new Moluzcos();
     Pez pez = new Pez();
+    Bailar ba=new Bailar();
 
 //---------------------------------------------
     /**
@@ -57,12 +60,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
         barrasBar();
         cron = new Cronometro();
         timer.start();
-        // Btn Medicina
-        med=new Medicamento_();
-        this.mostrar();
-        seg=0;
-        this.iniciar();
-        //TERMINA BTN MEDICINA
+      
     }
     javax.swing.Timer timer = new javax.swing.Timer(1000, (ActionEvent e) -> {
         //this.tiempo.setText(cron.toString());
@@ -87,6 +85,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
         this.Bebe.setVisible(false);
         this.Joven.setVisible(false);
         this.JEnfermo.setVisible(false);
+        this.PBailando.setVisible(false);
     }
 
     private void habilitarBotones(int contadorDías) {
@@ -119,6 +118,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        PBailando = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         btnBailar = new javax.swing.JButton();
         btnCorrer = new javax.swing.JButton();
@@ -147,6 +147,9 @@ public class JuegoPrincipal extends javax.swing.JFrame {
         setResizable(false);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        PBailando.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/PerryBailando.gif"))); // NOI18N
+        jPanel1.add(PBailando, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/MEDICAMENTOBTN1.png"))); // NOI18N
         jButton1.setContentAreaFilled(false);
@@ -190,7 +193,6 @@ public class JuegoPrincipal extends javax.swing.JFrame {
         jPanel1.add(Joven, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 340, 730, 350));
 
         tEdad.setFont(new java.awt.Font("Ebrima", 1, 18)); // NOI18N
-        tEdad.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(tEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 120, 30));
 
         Bebe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/bebe (1).gif"))); // NOI18N
@@ -245,7 +247,6 @@ public class JuegoPrincipal extends javax.swing.JFrame {
         pHambre.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
         pHambre.setForeground(new java.awt.Color(255, 255, 255));
         pHambre.setToolTipText("");
-        pHambre.setOpaque(false);
         pHambre.setString("HAMBRE");
         pHambre.setStringPainted(true);
         jPanel1.add(pHambre, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 10, 170, 20));
@@ -254,7 +255,6 @@ public class JuegoPrincipal extends javax.swing.JFrame {
         pEnergía.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
         pEnergía.setForeground(new java.awt.Color(255, 255, 255));
         pEnergía.setToolTipText("");
-        pEnergía.setOpaque(false);
         pEnergía.setString("ENERGÍA");
         pEnergía.setStringPainted(true);
         jPanel1.add(pEnergía, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 10, 170, 20));
@@ -263,7 +263,6 @@ public class JuegoPrincipal extends javax.swing.JFrame {
         pAburrimiento.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
         pAburrimiento.setForeground(new java.awt.Color(255, 255, 255));
         pAburrimiento.setToolTipText("");
-        pAburrimiento.setOpaque(false);
         pAburrimiento.setString("ABURRIMIENTO");
         pAburrimiento.setStringPainted(true);
         jPanel1.add(pAburrimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, 170, 20));
@@ -272,7 +271,6 @@ public class JuegoPrincipal extends javax.swing.JFrame {
         pSalud.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
         pSalud.setForeground(new java.awt.Color(255, 255, 255));
         pSalud.setToolTipText("");
-        pSalud.setOpaque(false);
         pSalud.setString("SALUD");
         pSalud.setStringPainted(true);
         jPanel1.add(pSalud, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, 170, 20));
@@ -297,7 +295,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 960, Short.MAX_VALUE)
         );
 
         pack();
@@ -341,7 +339,9 @@ public class JuegoPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPezActionPerformed
 
     private void btnBailarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBailarActionPerformed
-      
+tiempoOcultar(this.btnBailar,ba.getTiempo());  
+tiempoOcultarA(this.PBailando,5);
+
     }//GEN-LAST:event_btnBailarActionPerformed
     private void tiempoOcultar(JButton boton, int time) {
         int tiempo = time * 1000;
@@ -371,7 +371,34 @@ public class JuegoPrincipal extends javax.swing.JFrame {
         timer = new Timer();
         timer.schedule(timerTask, 0, tiempo);
     }
+ private void tiempoOcultarA(JLabel label, int time){
+int tiempo = time * 1000;
+        Timer timer;
+        TimerTask timerTask;
+        timerTask = new TimerTask() {
 
+            @Override
+            public void run() {
+                switch (contaSa) {
+                    case 0:
+                        contaSa++;
+                        label.setVisible(true);
+                        break;
+                    case 1:
+                        contaSa = 0;
+                         label.setVisible(false);
+                        cancel();
+                        break;
+
+                }
+
+            }
+
+        };
+
+        timer = new Timer();
+        timer.schedule(timerTask, 0, tiempo);
+}
     /**
      * @param args the command line arguments
      */
@@ -413,6 +440,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel Huevo;
     private javax.swing.JLabel JEnfermo;
     private javax.swing.JLabel Joven;
+    private javax.swing.JLabel PBailando;
     private javax.swing.JButton btnAlgas;
     private javax.swing.JButton btnBailar;
     private javax.swing.JButton btnCamarones;
@@ -530,6 +558,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
     }
     //..................................................
     //BTN Medicamento:
+    /*
     private void efectodeMedicamento(){
         if (or.getSalud()<=20){
             or.setSalud(45);
@@ -565,5 +594,6 @@ public class JuegoPrincipal extends javax.swing.JFrame {
         this.btnrojo.setEnabled(sema.isRoja());
         
     }
+*/
 }
     //TERMINA BTN MEDICAMENTO
