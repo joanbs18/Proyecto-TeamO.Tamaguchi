@@ -17,7 +17,6 @@ public class Medicamento_ {
     public String getNombre() {
         return Nombre;
     }
-
     public void setNombre(String Nombre) {
         this.Nombre = Nombre;
     }
@@ -25,7 +24,6 @@ public class Medicamento_ {
     public int getCantidadDeSalud() {
         return CantidadDeSalud;
     }
-
     public void setCantidadDeSalud(int CantidadDeSalud) {
         this.CantidadDeSalud = CantidadDeSalud;
     }
@@ -33,12 +31,9 @@ public class Medicamento_ {
     public int getEnergia() {
         return Energia;
     }
-
     public void setEnergia(int Energia) {
         this.Energia = Energia;
     }
-
-
 
     public int getTiempo() {
         return tiempo;
