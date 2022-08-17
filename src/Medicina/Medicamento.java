@@ -4,9 +4,6 @@
  */
 package Medicina;
 
-import java.util.Timer;
-import java.util.TimerTask;
-import javax.swing.JButton;
 
 /**
  *
@@ -18,6 +15,7 @@ public class Medicamento {
     protected int Energia;
     protected int precio;
     protected int tiempo;
+    private boolean Disponiblidad;
 
     public String getNombre() {
         return Nombre;
@@ -58,5 +56,22 @@ public class Medicamento {
     public void setTiempo(int tiempo) {
         this.tiempo = tiempo;
     }
-    
+
+    public Medicamento() {
+        this.Nombre= "Jarabe de Alga";
+        this.CantidadDeSalud=200;
+        this.precio=400;
+    }
+
+    private int Compra(int Dinero){
+    if (Dinero>=precio){
+    Dinero-=precio;
+    this.Disponiblidad=true;
+    }else{
+    Dinero=399;
+    this.Disponiblidad=false;
+    }
+    return Dinero;
+    }
+        
 }
