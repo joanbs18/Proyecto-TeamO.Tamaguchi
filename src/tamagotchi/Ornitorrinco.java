@@ -16,30 +16,60 @@ import javax.swing.JOptionPane;
 public class Ornitorrinco {
 
     private String Nombre;
-    private int Salud;
+    private boolean Salud;
     private int Aburrimiento;
     private int Energía;
+    private int Necesidad;
     private int Hambre;
-    private boolean Estado;
+    private boolean Dormir;
     private String[] Cedad = {"Huevo", "Bebe", "Joven", "Adulto"};
 
     public Ornitorrinco(String Nombre) {
         this.Nombre = Nombre;
-        Salud = 100;
+        Salud = true;
         Aburrimiento = 0;
         Energía = 100;
         Hambre = 0;
-        Estado = true;
+        Dormir=false;
+        Necesidad=0;
+       
 
     }
 
-    public void setSalud(int Salud) {
-        if (this.Salud <= 10) {
-            JOptionPane.showMessageDialog(null, "Peligra la salud");
-        } else {
-            this.Salud = Salud;
+    public int getNecesidad() {
+        return Necesidad;
+    }
+
+    public void setNecesidad(int Necesidad) {
+        this.Necesidad = Necesidad;
+    }
+
+    
+    
+    public boolean isDormir() {
+        return Dormir;
+    }
+
+    public void setDormir(boolean Dormir) {
+        if(Dormir){
+        this.Energía+=50;
         }
+        this.Dormir = false;
+        
+      
     }
+
+
+
+    public boolean isSalud() {
+        return Salud;
+    }
+
+    public void setSalud(boolean Salud) {
+        this.Salud = Salud;
+    }
+
+   
 
     public void setAburrimiento(int Aburrimiento) {
         if(this.Aburrimiento>=100){
@@ -58,10 +88,7 @@ public class Ornitorrinco {
         }
     }
 
-    public int getSalud() {
-        this.EstadoDeSalud();
-        return Salud;
-    }
+   
 
     public int getAburrimiento() {
         return Aburrimiento;
@@ -83,12 +110,7 @@ public class Ornitorrinco {
         }
     }
 
-    private void EstadoDeSalud() {
-
-        if (Salud < 5) {
-            Estado = false;
-        }
-    }
+   
 
     public String[] getEdad() {
         return Cedad;
@@ -106,13 +128,7 @@ public class Ornitorrinco {
         }
     }
 
-    public void subidaEnSalud(int salud) {
-        if (this.Salud < 100) {
-            this.Salud += salud;
-        } else {
-            JOptionPane.showMessageDialog(null, "Estas bien de Salud");
-        }   
-    }
+  
 
 public void subidaEnergía(int Energía){ //En caso de comer o alguna cosa que suba energía
 if(this.Energía>=100){
@@ -134,6 +150,18 @@ if(this.Energía>=100){
 this.Energía=100;
 }else{
 this.Energía+=Energía;
+}
+}
+
+public void EstadoSalud(){
+if (this.Hambre>=100){
+this.Salud=false;
+}
+if (this.Aburrimiento>=100){
+this.Salud=false;
+}
+if (this.Energía<=0){
+this.Salud=false;
 }
 }
 

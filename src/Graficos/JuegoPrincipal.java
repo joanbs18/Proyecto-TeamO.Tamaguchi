@@ -43,6 +43,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
     static int conta = 0;//ES PARA MOSTRAR LAS EDADES
     static int contaS = 0;//ES PARA MOSTRAR LAS EDADES
     static int contaSa = 0;//ES PARA MOSTRAR LAS ACTIVIDADES RECREATIVAS
+    static int contadorBaño = 0;//ES PARA MOSTRAR LAS LA NECESIDAD DE IR AL BAÑO
 //OBJECTOS-------------------------------------
     Ornitorrinco or = new Ornitorrinco(Nombre);
     Camarones cam = new Camarones();
@@ -75,10 +76,10 @@ public class JuegoPrincipal extends javax.swing.JFrame {
     });
 
     private void barrasBar() {
-        this.pSalud.setValue(or.getSalud());
         this.pAburrimiento.setValue(or.getAburrimiento());
         this.pEnergía.setValue(or.getEnergía());
         this.pHambre.setValue(or.getHambre());
+        this.pNecesidad.setValue(or.getNecesidad());
 
     }
 
@@ -105,21 +106,27 @@ public class JuegoPrincipal extends javax.swing.JFrame {
     }
 
     private void habilitarBotones(int contadorDías) {
-        if (contadorDías == 2) {
+        if (contadorDías == 3) {
             this.btnCamarones.setEnabled(true);
+            this.btnBailar.setEnabled(true);
 
         }
-        if (contadorDías == 3) {
+        if (contadorDías == 5) {
             this.btnRenacuajo.setEnabled(true);
+            this.btnCorrer.setEnabled(true);
         }
-        if (contadorDías == 4) {
+        if (contadorDías == 7) {
             this.btnAlgas.setEnabled(true);
+            this.btnDivertirse.setEnabled(true);
+            this.btnAgenteP.setEnabled(true);
         }
-        if (contadorDías == 15) {
+        if (contadorDías == 10) {
             this.btnMoluzco.setEnabled(true);
+            this.btnEjercicio.setEnabled(true);
         }
-        if (contadorDías == 16) {
+        if (contadorDías == 12) {
             this.btnPez.setEnabled(true);
+            
         }
 
     }
@@ -134,6 +141,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        pNecesidad = new javax.swing.JProgressBar();
         btnMedicamento = new javax.swing.JButton();
         btnBailar = new javax.swing.JButton();
         btnCorrer = new javax.swing.JButton();
@@ -152,7 +160,6 @@ public class JuegoPrincipal extends javax.swing.JFrame {
         pHambre = new javax.swing.JProgressBar();
         pEnergía = new javax.swing.JProgressBar();
         pAburrimiento = new javax.swing.JProgressBar();
-        pSalud = new javax.swing.JProgressBar();
         Brilo = new javax.swing.JLabel();
         Huevo = new javax.swing.JLabel();
         fondoDia = new javax.swing.JLabel();
@@ -167,6 +174,14 @@ public class JuegoPrincipal extends javax.swing.JFrame {
         setResizable(false);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        pNecesidad.setBackground(new java.awt.Color(51, 255, 51));
+        pNecesidad.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        pNecesidad.setForeground(new java.awt.Color(255, 255, 255));
+        pNecesidad.setToolTipText("");
+        pNecesidad.setString("NECESIDAD");
+        pNecesidad.setStringPainted(true);
+        jPanel1.add(pNecesidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 10, 170, 20));
 
         btnMedicamento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/MEDICAMENTOBTN1.png"))); // NOI18N
         btnMedicamento.setContentAreaFilled(false);
@@ -291,7 +306,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
         pHambre.setToolTipText("");
         pHambre.setString("HAMBRE");
         pHambre.setStringPainted(true);
-        jPanel1.add(pHambre, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 10, 170, 20));
+        jPanel1.add(pHambre, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 10, 170, 20));
 
         pEnergía.setBackground(new java.awt.Color(51, 255, 51));
         pEnergía.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
@@ -299,7 +314,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
         pEnergía.setToolTipText("");
         pEnergía.setString("ENERGÍA");
         pEnergía.setStringPainted(true);
-        jPanel1.add(pEnergía, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 10, 170, 20));
+        jPanel1.add(pEnergía, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, 170, 20));
 
         pAburrimiento.setBackground(new java.awt.Color(51, 255, 51));
         pAburrimiento.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
@@ -307,15 +322,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
         pAburrimiento.setToolTipText("");
         pAburrimiento.setString("ABURRIMIENTO");
         pAburrimiento.setStringPainted(true);
-        jPanel1.add(pAburrimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, 170, 20));
-
-        pSalud.setBackground(new java.awt.Color(51, 255, 51));
-        pSalud.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
-        pSalud.setForeground(new java.awt.Color(255, 255, 255));
-        pSalud.setToolTipText("");
-        pSalud.setString("SALUD");
-        pSalud.setStringPainted(true);
-        jPanel1.add(pSalud, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, 170, 20));
+        jPanel1.add(pAburrimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 170, 20));
 
         Brilo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/brillo.gif"))); // NOI18N
         jPanel1.add(Brilo, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 330, 370, 360));
@@ -544,7 +551,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
     private javax.swing.JProgressBar pAburrimiento;
     private javax.swing.JProgressBar pEnergía;
     private javax.swing.JProgressBar pHambre;
-    private javax.swing.JProgressBar pSalud;
+    private javax.swing.JProgressBar pNecesidad;
     private javax.swing.JLabel tEdad;
     // End of variables declaration//GEN-END:variables
 
@@ -567,11 +574,14 @@ public class JuegoPrincipal extends javax.swing.JFrame {
                         label1.setVisible(true);
                         label2.setVisible(false);
                         contadorDías++;
+                        contadorBaño++;
                         contaS++;
                         habilitarBotones(contadorDías);
                         tipoEdad(contadorDías);
                         bajasEnHambre(contaS);
-                        System.out.println(contaS);
+                        irAlBaño(contadorBaño);
+                        
+                        
 
                         break;
                     case 1:
@@ -592,14 +602,14 @@ public class JuegoPrincipal extends javax.swing.JFrame {
     }
 
     private void tipoEdad(int contadorDías) {//MUESTRA SI ES HUEVO,JOVEN,ADULTO
-        if (contadorDías == 2) {
+        if (contadorDías == 3) {
             this.Huevo.setVisible(false);
             this.Brilo.setVisible(false);
             this.Bebe.setVisible(true);
             this.tEdad.setText(or.EdadMascota(1));
         }
 
-        if (contadorDías == 10) {
+        if (contadorDías == 7) {
             this.Bebe.setVisible(false);
             this.Joven.setVisible(true);
             this.tEdad.setText(or.EdadMascota(3));
@@ -614,7 +624,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
         if (contador == 3) {
             contaS = 0;
             or.setHambre(15);
-            bajasEnSalud();
+         
             barrasBar();
             System.out.println(or.getHambre());
             if (or.getHambre() >= 90) {
@@ -624,20 +634,17 @@ public class JuegoPrincipal extends javax.swing.JFrame {
         }
 
     }
-
-    private void bajasEnSalud() {
-        if (or.getHambre() > 60) {
-            or.setSalud(30);
-            barrasBar();
-            if (or.getSalud() <= 10) {
-                JOptionPane.showMessageDialog(rootPane, "Problemas en Salud");
-                this.JEnfermo.setVisible(true);
-            } else {
-                this.JEnfermo.setVisible(false);
-            }
-
-        }
+    private void irAlBaño(int conta){
+    if (conta==5){
+    or.setNecesidad(50);
+    or.setAburrimiento(30);
+    barrasBar();
+    contadorBaño=0;
+    
     }
+    }
+
+  
 
     //..................................................
     //BTN Medicamento:
