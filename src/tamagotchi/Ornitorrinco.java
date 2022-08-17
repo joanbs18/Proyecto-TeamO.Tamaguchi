@@ -46,7 +46,11 @@ public class Ornitorrinco {
     }
 
     public void setEnergía(int Energía) {
-        this.Energía = Energía;
+        if (this.Energía > 0) {
+            this.Energía = 0;
+        } else {
+            this.Energía -= Energía;
+        }
     }
 
     public int getSalud() {
@@ -75,8 +79,8 @@ public class Ornitorrinco {
     }
 
     private void EstadoDeSalud() {
-      
-        if (Salud <5) {
+
+        if (Salud < 5) {
             Estado = false;
         }
     }
@@ -104,5 +108,14 @@ public class Ornitorrinco {
             JOptionPane.showMessageDialog(null, "Esta bien de Salud");
         }
     }
+
+public void subidaEnergía(int Energía){ //En caso de comer o alguna cosa que suba energía
+if(this.Energía>=100){
+this.Energía=100;
+JOptionPane.showMessageDialog(null, "Esta al maximo de energía");
+}else{
+this.Energía+=Energía;
+}
+}
 
 }

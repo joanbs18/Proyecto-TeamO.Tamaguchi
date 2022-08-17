@@ -9,9 +9,9 @@ package Actividades;
  * @author joans
  */
 public class Bailar {
-    private int Energía;
-    private int aburrimiento;
-    private int Tiempo;
+    protected int Energía;
+    protected int aburrimiento;
+    protected int Tiempo;
 
     public Bailar(int Energía, int aburrimiento, int Tiempo) {
         this.Energía = Energía;
@@ -53,6 +53,6 @@ public class Bailar {
         this.Tiempo = Tiempo;
     }
     
-   // public void bajar
+ 
   
 }
