@@ -18,5 +18,45 @@ public class Medicamento {
     protected int Energia;
     protected int precio;
     protected int tiempo;
+
+    public String getNombre() {
+        return Nombre;
+    }
+
+    public void setNombre(String Nombre) {
+        this.Nombre = Nombre;
+    }
+
+    public int getCantidadDeSalud() {
+        return CantidadDeSalud;
+    }
+
+    public void setCantidadDeSalud(int CantidadDeSalud) {
+        this.CantidadDeSalud = CantidadDeSalud;
+    }
+
+    public int getEnergia() {
+        return Energia;
+    }
+
+    public void setEnergia(int Energia) {
+        this.Energia = Energia;
+    }
+
+    public int getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(int precio) {
+        this.precio = precio;
+    }
+
+    public int getTiempo() {
+        return tiempo;
+    }
+
+    public void setTiempo(int tiempo) {
+        this.tiempo = tiempo;
+    }
     
 }
