@@ -42,6 +42,7 @@ private int acumulador=0;
         Sub3 = new javax.swing.JLabel();
         Sub2 = new javax.swing.JLabel();
         Sub1 = new javax.swing.JLabel();
+        BurbujaTexto = new javax.swing.JLabel();
         btnSiguiente = new javax.swing.JButton();
         DuffHablando = new javax.swing.JLabel();
 
@@ -54,25 +55,29 @@ private int acumulador=0;
         Flecha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Red-Arrow-PNG-Photo.png"))); // NOI18N
         FondoPrincipal.add(Flecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 610, -1, -1));
 
-        Sub4.setFont(new java.awt.Font("Ebrima", 0, 24)); // NOI18N
-        Sub4.setForeground(new java.awt.Color(255, 153, 0));
-        Sub4.setText("Toca el Botón de SIGUIENTE para continuar");
-        FondoPrincipal.add(Sub4, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 610, -1, -1));
+        Sub4.setFont(new java.awt.Font("Eras Bold ITC", 0, 30)); // NOI18N
+        Sub4.setForeground(new java.awt.Color(102, 0, 0));
+        Sub4.setText("<html>Toca el Botón de <p>SIGUIENTE<p> para continuar<html>");
+        FondoPrincipal.add(Sub4, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 120, -1, -1));
 
-        Sub3.setFont(new java.awt.Font("Ebrima", 0, 24)); // NOI18N
-        Sub3.setForeground(new java.awt.Color(255, 153, 0));
-        Sub3.setText("Puedes ponerle el nombre que tu quieras, que tal si empezamos a ponerle un nombre?");
-        FondoPrincipal.add(Sub3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 610, -1, -1));
+        Sub3.setFont(new java.awt.Font("Eras Bold ITC", 0, 30)); // NOI18N
+        Sub3.setForeground(new java.awt.Color(102, 0, 0));
+        Sub3.setText("<html>Puedes ponerle el nombre que tu <p> quieras, que tal si empezamos?<html>");
+        FondoPrincipal.add(Sub3, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 130, -1, -1));
 
-        Sub2.setFont(new java.awt.Font("Ebrima", 0, 24)); // NOI18N
-        Sub2.setForeground(new java.awt.Color(255, 153, 0));
-        Sub2.setText("El es un Ornitorrinco Unico, tienes que cuidarlo, darle de comer, llevarlo al baño... etc");
-        FondoPrincipal.add(Sub2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 610, -1, -1));
+        Sub2.setFont(new java.awt.Font("Eras Bold ITC", 0, 30)); // NOI18N
+        Sub2.setForeground(new java.awt.Color(102, 0, 0));
+        Sub2.setText("<html>El es un Ornitorrinco Unico <p> tienes que cuidarlo, darle de <p>comer llevarlo al baño... etc<html>");
+        FondoPrincipal.add(Sub2, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 120, -1, -1));
 
-        Sub1.setFont(new java.awt.Font("Ebrima", 0, 24)); // NOI18N
-        Sub1.setForeground(new java.awt.Color(255, 153, 0));
-        Sub1.setText("Hola Soy Duff, te presento este increible Juego se llama Tamagochí, donde vas a tener que cuiadar a un Ornitorrinco ");
-        FondoPrincipal.add(Sub1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 610, -1, -1));
+        Sub1.setFont(new java.awt.Font("Eras Bold ITC", 0, 30)); // NOI18N
+        Sub1.setForeground(new java.awt.Color(102, 0, 0));
+        Sub1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Sub1.setText("<html> ¡Hola Soy Duff! te presento <p> este increible Juego llamado <p> Tamagotchi <p> Donde vas a tener que cuiadar <p> a un Ornitorrinco<html>");
+        FondoPrincipal.add(Sub1, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 90, -1, -1));
+
+        BurbujaTexto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/kisspng-dialog-box-icon-painted-simple-dialog-box-5a808172ab8862.7497991815183711867026.png"))); // NOI18N
+        FondoPrincipal.add(BurbujaTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 40, 730, 380));
 
         btnSiguiente.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
         btnSiguiente.setText("Siguiente");
@@ -90,11 +95,11 @@ private int acumulador=0;
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(FondoPrincipal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(FondoPrincipal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(FondoPrincipal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(FondoPrincipal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -161,6 +166,7 @@ private int acumulador=0;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel BurbujaTexto;
     private javax.swing.JLabel DuffHablando;
     private javax.swing.JLabel Flecha;
     private javax.swing.JPanel FondoPrincipal;
