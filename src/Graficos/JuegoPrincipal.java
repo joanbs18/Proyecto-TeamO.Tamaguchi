@@ -19,12 +19,16 @@ import javax.swing.JOptionPane;
 
 import tamagotchi.Cronometro;
 import tamagotchi.Ornitorrinco;
+import Medicina.Medicamento_;
 
 /**
  *
  * @author joans
  */
 public class JuegoPrincipal extends javax.swing.JFrame {
+    //BTN MEDICINA
+    Medicamento_ med;
+    int seg;
 //ATRIBUTOS------------------------------------
 
     private int contadorDías;
@@ -53,7 +57,12 @@ public class JuegoPrincipal extends javax.swing.JFrame {
         barrasBar();
         cron = new Cronometro();
         timer.start();
-
+        // Btn Medicina
+        med=new Medicamento_();
+        this.mostrar();
+        seg=0;
+        this.iniciar();
+        //TERMINA BTN MEDICINA
     }
     javax.swing.Timer timer = new javax.swing.Timer(1000, (ActionEvent e) -> {
         //this.tiempo.setText(cron.toString());
@@ -519,4 +528,41 @@ public class JuegoPrincipal extends javax.swing.JFrame {
     private void bajasEnEnergía(){
     
     }
+    
+    //BTN Medicamento:
+    private void efectodeMedicamento(){
+        if (or.getSalud()<=20){
+            or.setSalud(45);
+        }
+         if (or.getAburrimiento()<=20){
+            or.setAburrimiento(45);
+        }
+          if (or.getEnergía()<=20){
+            or.setEnergía(45);
+        }
+           if (or.getHambre()<=20){
+            or.setHambre(45);
+        }
+    }
+    // MEDICAMENTO:
+     public void iniciar(){
+        timer.start();
+    }
+     
+    private void contar(){
+        seg++;
+        if(seg==5||seg==9||seg==10){
+            sema.cambiar();
+            this.mostrar();
+        }
+        if(seg==10){
+        seg=0;
+        }
+    }
+    
+    private void mostrar(){
+        this.btnrojo.setEnabled(sema.isRoja());
+        
+    }
 }
+    //TERMINA BTN MEDICAMENTO

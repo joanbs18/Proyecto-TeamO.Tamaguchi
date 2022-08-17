@@ -168,9 +168,6 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Ebrima" size="18" style="1"/>
             </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="0" type="rgb"/>
-            </Property>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -282,7 +279,6 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value=""/>
-            <Property name="opaque" type="boolean" value="false"/>
             <Property name="string" type="java.lang.String" value="HAMBRE"/>
             <Property name="stringPainted" type="boolean" value="true"/>
           </Properties>
@@ -304,7 +300,6 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value=""/>
-            <Property name="opaque" type="boolean" value="false"/>
             <Property name="string" type="java.lang.String" value="ENERG&#xcd;A"/>
             <Property name="stringPainted" type="boolean" value="true"/>
           </Properties>
@@ -326,7 +321,6 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value=""/>
-            <Property name="opaque" type="boolean" value="false"/>
             <Property name="string" type="java.lang.String" value="ABURRIMIENTO"/>
             <Property name="stringPainted" type="boolean" value="true"/>
           </Properties>
@@ -348,7 +342,6 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value=""/>
-            <Property name="opaque" type="boolean" value="false"/>
             <Property name="string" type="java.lang.String" value="SALUD"/>
             <Property name="stringPainted" type="boolean" value="true"/>
           </Properties>
