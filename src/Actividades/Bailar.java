@@ -53,6 +53,6 @@ public class Bailar {
         this.Tiempo = Tiempo;
     }
     
-    public void bajar
+   // public void bajar
   
 }

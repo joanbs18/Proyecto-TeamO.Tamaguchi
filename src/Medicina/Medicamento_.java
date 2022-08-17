@@ -9,14 +9,16 @@ package Medicina;
  * @author Ale Anchía
  */
 public class Medicamento_ {
-    protected String Nombre;
-    protected int CantidadDeSalud;
-    protected int Energia;
-    protected int tiempo;
+
+    private String Nombre;
+    private int CantidadDeSalud;
+    private int Energia;
+    private int tiempo;
 
     public String getNombre() {
         return Nombre;
     }
+
     public void setNombre(String Nombre) {
         this.Nombre = Nombre;
     }
@@ -24,6 +26,7 @@ public class Medicamento_ {
     public int getCantidadDeSalud() {
         return CantidadDeSalud;
     }
+
     public void setCantidadDeSalud(int CantidadDeSalud) {
         this.CantidadDeSalud = CantidadDeSalud;
     }
@@ -31,6 +34,7 @@ public class Medicamento_ {
     public int getEnergia() {
         return Energia;
     }
+
     public void setEnergia(int Energia) {
         this.Energia = Energia;
     }
@@ -38,15 +42,14 @@ public class Medicamento_ {
     public int getTiempo() {
         return tiempo;
     }
+
     public void setTiempo(int tiempo) {
         this.tiempo = tiempo;
     }
 
     public Medicamento_() {
-        this.Nombre= "Jarabe de Alga";
-        this.CantidadDeSalud=200;
-    }  
-    
-        
-}
+        this.Nombre = "Jarabe de Alga";
+        this.CantidadDeSalud = 200;
+    }
 
+}

@@ -544,6 +544,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
             or.setHambre(45);
         }
     }
+    
     // MEDICAMENTO:
      public void iniciar(){
         timer.start();
