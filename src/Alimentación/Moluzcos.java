@@ -11,7 +11,7 @@ package Alimentación;
 public class Moluzcos extends Camarones {
 
     public Moluzcos() {
-        super(25, 200);
+        super(25,20,10);
     }
     
 }

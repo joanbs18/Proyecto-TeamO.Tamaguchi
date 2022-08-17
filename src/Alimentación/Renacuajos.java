@@ -10,6 +10,6 @@ package Alimentación;
  */
 public class Renacuajos extends Camarones{
     public Renacuajos() {
-        super(25, 200);
+       super(25, 30,30);
     }
 }

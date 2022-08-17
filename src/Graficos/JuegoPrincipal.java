@@ -110,8 +110,8 @@ public class JuegoPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnBailar = new javax.swing.JButton();
+        btnCorrer = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
@@ -124,7 +124,6 @@ public class JuegoPrincipal extends javax.swing.JFrame {
         btnAlgas = new javax.swing.JButton();
         btnMoluzco = new javax.swing.JButton();
         btnPez = new javax.swing.JButton();
-        btnMedicina = new javax.swing.JButton();
         pHambre = new javax.swing.JProgressBar();
         pEnergía = new javax.swing.JProgressBar();
         pAburrimiento = new javax.swing.JProgressBar();
@@ -139,25 +138,38 @@ public class JuegoPrincipal extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/BAILARBTN1.png"))); // NOI18N
-        jButton1.setContentAreaFilled(false);
-        jButton1.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/BAILARBTN2.png"))); // NOI18N
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 160, -1, -1));
+        btnBailar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/BAILARBTN1.png"))); // NOI18N
+        btnBailar.setContentAreaFilled(false);
+        btnBailar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/BAILARBTN2.png"))); // NOI18N
+        btnBailar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBailarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnBailar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 160, -1, -1));
 
-        jButton2.setText("jButton1");
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1200, 270, -1, -1));
+        btnCorrer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/CORRERBTN1.png"))); // NOI18N
+        btnCorrer.setContentAreaFilled(false);
+        btnCorrer.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/CORRERBTN2.png"))); // NOI18N
+        jPanel1.add(btnCorrer, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 260, -1, -1));
 
-        jButton3.setText("jButton1");
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 200, -1, -1));
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/DIVERTIRSEBTN1.png"))); // NOI18N
+        jButton3.setContentAreaFilled(false);
+        jButton3.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/DIVERTIRSEBTN2.png"))); // NOI18N
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 360, -1, -1));
 
-        jButton4.setText("jButton1");
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 200, -1, -1));
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/EJERCICIOBT1.png"))); // NOI18N
+        jButton4.setContentAreaFilled(false);
+        jButton4.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/EJERCICIOBTN2.png"))); // NOI18N
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 460, -1, -1));
 
-        jButton5.setText("jButton1");
-        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 200, -1, -1));
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/AGENTEBTN1.png"))); // NOI18N
+        jButton5.setContentAreaFilled(false);
+        jButton5.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/AGENTEBTN2.png"))); // NOI18N
+        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 560, -1, -1));
 
         JEnfermo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/termometro (1).gif"))); // NOI18N
-        jPanel1.add(JEnfermo, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 340, 360, 400));
+        jPanel1.add(JEnfermo, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 340, 190, 400));
 
         Joven.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Joven.gif"))); // NOI18N
         jPanel1.add(Joven, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 330, 730, 350));
@@ -213,11 +225,6 @@ public class JuegoPrincipal extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnPez, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 530, -1, -1));
-
-        btnMedicina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconfinder-basket-4341280_120547.png"))); // NOI18N
-        btnMedicina.setContentAreaFilled(false);
-        btnMedicina.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/comprar-verde.png"))); // NOI18N
-        jPanel1.add(btnMedicina, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 620, 100, 80));
 
         pHambre.setBackground(new java.awt.Color(51, 255, 51));
         pHambre.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
@@ -317,6 +324,10 @@ public class JuegoPrincipal extends javax.swing.JFrame {
         barrasBar();
         
     }//GEN-LAST:event_btnPezActionPerformed
+
+    private void btnBailarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBailarActionPerformed
+      
+    }//GEN-LAST:event_btnBailarActionPerformed
     private void tiempoOcultar(JButton boton, int time) {
         int tiempo = time * 1000;
         Timer timer;
@@ -388,15 +399,14 @@ public class JuegoPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel JEnfermo;
     private javax.swing.JLabel Joven;
     private javax.swing.JButton btnAlgas;
+    private javax.swing.JButton btnBailar;
     private javax.swing.JButton btnCamarones;
-    private javax.swing.JButton btnMedicina;
+    private javax.swing.JButton btnCorrer;
     private javax.swing.JButton btnMoluzco;
     private javax.swing.JButton btnPez;
     private javax.swing.JButton btnRenacuajo;
     private javax.swing.JLabel fondoDia;
     private javax.swing.JLabel fondoNoche;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
