@@ -528,7 +528,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
     private void bajasEnEnergía(){
     
     }
-    
+    //..................................................
     //BTN Medicamento:
     private void efectodeMedicamento(){
         if (or.getSalud()<=20){
