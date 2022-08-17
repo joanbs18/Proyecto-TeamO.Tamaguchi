@@ -15,7 +15,6 @@ public class Medicamento {
     protected int Energia;
     protected int precio;
     protected int tiempo;
-    private boolean Disponiblidad;
 
     public String getNombre() {
         return Nombre;
@@ -61,17 +60,6 @@ public class Medicamento {
         this.Nombre= "Jarabe de Alga";
         this.CantidadDeSalud=200;
         this.precio=400;
-    }
-
-    private int Compra(int Dinero){
-    if (Dinero>=precio){
-    Dinero-=precio;
-    this.Disponiblidad=true;
-    }else{
-    Dinero=399;
-    this.Disponiblidad=false;
-    }
-    return Dinero;
     }
         
 }
