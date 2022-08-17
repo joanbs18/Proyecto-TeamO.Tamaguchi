@@ -61,5 +61,6 @@ public class Medicamento {
         this.CantidadDeSalud=200;
         this.precio=400;
     }
+    
         
 }
