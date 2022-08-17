@@ -4,6 +4,10 @@
  */
 package Medicina;
 
+import java.util.Timer;
+import java.util.TimerTask;
+import javax.swing.JButton;
+
 /**
  *
  * @author Ale Anchía
@@ -11,6 +15,8 @@ package Medicina;
 public class Medicamento {
     protected String Nombre;
     protected int CantidadDeSalud;
+    protected int Energia;
     protected int precio;
+    protected int tiempo;
     
 }
