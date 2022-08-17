@@ -4,16 +4,20 @@
  */
 package Medicina;
 
-
 /**
  *
  * @author Ale Anchía
  */
-public class Medicamento {
-    
+public class Medicamento_ {
+      protected String Nombre;
+    protected int CantidadDeSalud;
+    protected int Energia;
+    protected int precio;
+    protected int tiempo;
+
     public String getNombre() {
         return Nombre;
-}
+    }
 
     public void setNombre(String Nombre) {
         this.Nombre = Nombre;
@@ -51,11 +55,12 @@ public class Medicamento {
         this.tiempo = tiempo;
     }
 
-    public Medicamento() {
+    public Medicamento_() {
         this.Nombre= "Jarabe de Alga";
         this.CantidadDeSalud=200;
         this.precio=400;
-    }
+    }  
     
         
 }
+
