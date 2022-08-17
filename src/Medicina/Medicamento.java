@@ -9,5 +9,8 @@ package Medicina;
  * @author Ale Anchía
  */
 public class Medicamento {
+    protected String Nombre;
+    protected int CantidadDeSalud;
+    protected int precio;
     
 }
