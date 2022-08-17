@@ -4,60 +4,47 @@
  */
 package Alimentación;
 
-import javax.swing.JOptionPane;
-
+import java.util.Timer;
+import java.util.TimerTask;
+import javax.swing.JButton;
 
 /**
  *
  * @author joans
  */
 public class Camarones {
-    protected int CantidadDeAlimentación;
-    protected int Precio;
-    protected int Disponibilidad;
 
-    public Camarones(int CantidadDeAlimentacion, int Precio) {
-     this.CantidadDeAlimentación=CantidadDeAlimentacion;
-     this.Precio=Precio;
-     
+    protected int CantidadDeAlimentación;
+    protected int Energia;
+    protected int Tiempo;
+
+    public int getEnergia() {
+        return Energia;
+    }
+
+    public Camarones(int CantidadDeAlimentación, int Energia, int Tiempo) {
+        this.CantidadDeAlimentación = CantidadDeAlimentación;
+        this.Energia = Energia;
+        this.Tiempo = Tiempo;
     }
 
     public Camarones() {
-        this.Precio=100;
-        this.Disponibilidad=0;
-        this.CantidadDeAlimentación=10;
-    }
-    
-
-    public void setDisponibilidad(int Disponibilidad) {
-        if (this.Disponibilidad<0)
-            this.Disponibilidad=0;
-        else
-        this.Disponibilidad -= Disponibilidad;
+        this.CantidadDeAlimentación = 30;
+        this.Energia = 5;
+        this.Tiempo = 10;
     }
 
-    public int getDisponibilidad() {
-        return Disponibilidad;
+    public int getTiempo() {
+        return Tiempo;
     }
 
-    public int getPrecio() {
-        return Precio;
+    public void setTiempo(int Tiempo) {
+        this.Tiempo = Tiempo;
     }
 
     public int getCantidadDeAlimentación() {
         return CantidadDeAlimentación;
     }
-    
  
-    private int Compra(int cantidad, int Dinero){
-    int PrecioTotal=cantidad*this.Precio;
-    if(PrecioTotal<=Dinero){
-    Dinero-=PrecioTotal;
-    this.Disponibilidad+=cantidad;
-    }else{
-    JOptionPane.showMessageDialog(null, "No tienes sufiente dinero");
-    Dinero=0;
-    }
-    return Dinero;
-    }
+ 
 }

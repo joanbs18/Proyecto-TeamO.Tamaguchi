@@ -55,22 +55,22 @@ private int acumulador=0;
         FondoPrincipal.add(Flecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 610, -1, -1));
 
         Sub4.setFont(new java.awt.Font("Ebrima", 0, 24)); // NOI18N
-        Sub4.setForeground(new java.awt.Color(255, 0, 0));
+        Sub4.setForeground(new java.awt.Color(255, 153, 0));
         Sub4.setText("Toca el Botón de SIGUIENTE para continuar");
         FondoPrincipal.add(Sub4, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 610, -1, -1));
 
         Sub3.setFont(new java.awt.Font("Ebrima", 0, 24)); // NOI18N
-        Sub3.setForeground(new java.awt.Color(255, 0, 0));
+        Sub3.setForeground(new java.awt.Color(255, 153, 0));
         Sub3.setText("Puedes ponerle el nombre que tu quieras, que tal si empezamos a ponerle un nombre?");
         FondoPrincipal.add(Sub3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 610, -1, -1));
 
         Sub2.setFont(new java.awt.Font("Ebrima", 0, 24)); // NOI18N
-        Sub2.setForeground(new java.awt.Color(255, 0, 0));
+        Sub2.setForeground(new java.awt.Color(255, 153, 0));
         Sub2.setText("El es un Ornitorrinco Unico, tienes que cuidarlo, darle de comer, llevarlo al baño... etc");
         FondoPrincipal.add(Sub2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 610, -1, -1));
 
         Sub1.setFont(new java.awt.Font("Ebrima", 0, 24)); // NOI18N
-        Sub1.setForeground(new java.awt.Color(255, 0, 0));
+        Sub1.setForeground(new java.awt.Color(255, 153, 0));
         Sub1.setText("Hola Soy Duff, te presento este increible Juego se llama Tamagochí, donde vas a tener que cuiadar a un Ornitorrinco ");
         FondoPrincipal.add(Sub1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 610, -1, -1));
 

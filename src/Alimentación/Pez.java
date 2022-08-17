@@ -10,6 +10,6 @@ package Alimentación;
  */
 public class Pez extends Camarones {
     public Pez(){
-    super(5,50);
+    super(10,10,10);
     }
 }

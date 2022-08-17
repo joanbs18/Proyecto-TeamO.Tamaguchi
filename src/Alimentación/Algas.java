@@ -10,6 +10,6 @@ package Alimentación;
  */
 public class Algas extends Camarones {
     public Algas() {
-        super(7, 70);
+        super(7, 5,20);
     }
 }
