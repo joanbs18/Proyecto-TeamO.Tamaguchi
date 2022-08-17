@@ -110,6 +110,11 @@ public class JuegoPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
         JEnfermo = new javax.swing.JLabel();
         Joven = new javax.swing.JLabel();
         tEdad = new javax.swing.JLabel();
@@ -134,8 +139,25 @@ public class JuegoPrincipal extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/BAILARBTN1.png"))); // NOI18N
+        jButton1.setContentAreaFilled(false);
+        jButton1.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/BAILARBTN2.png"))); // NOI18N
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 160, -1, -1));
+
+        jButton2.setText("jButton1");
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1200, 270, -1, -1));
+
+        jButton3.setText("jButton1");
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 200, -1, -1));
+
+        jButton4.setText("jButton1");
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 200, -1, -1));
+
+        jButton5.setText("jButton1");
+        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 200, -1, -1));
+
         JEnfermo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/termometro (1).gif"))); // NOI18N
-        jPanel1.add(JEnfermo, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 330, 610, 410));
+        jPanel1.add(JEnfermo, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 340, 360, 400));
 
         Joven.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Joven.gif"))); // NOI18N
         jPanel1.add(Joven, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 330, 730, 350));
@@ -373,6 +395,11 @@ public class JuegoPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnRenacuajo;
     private javax.swing.JLabel fondoDia;
     private javax.swing.JLabel fondoNoche;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JProgressBar pAburrimiento;
     private javax.swing.JProgressBar pEnergía;
@@ -465,8 +492,14 @@ public class JuegoPrincipal extends javax.swing.JFrame {
             barrasBar();
             if (or.getSalud() <=10) {
                 JOptionPane.showMessageDialog(rootPane, "Problemas en Salud");
+                this.JEnfermo.setVisible(true);
+            }else{
+            this.JEnfermo.setVisible(false);
             }
 
         }
+    }
+    private void bajasEnEnergía(){
+    
     }
 }
