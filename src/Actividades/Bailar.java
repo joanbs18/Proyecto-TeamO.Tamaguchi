@@ -10,4 +10,5 @@ package Actividades;
  */
 public class Bailar {
     private int Energía;
+  
 }
