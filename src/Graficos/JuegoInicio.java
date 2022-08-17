@@ -74,7 +74,7 @@ private int acumulador=0;
         Sub1.setForeground(new java.awt.Color(102, 0, 0));
         Sub1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Sub1.setText("<html> ¡Hola Soy Duff! te presento <p> este increible Juego llamado <p> Tamagotchi <p> Donde vas a tener que cuiadar <p> a un Ornitorrinco<html>");
-        FondoPrincipal.add(Sub1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 90, -1, -1));
+        FondoPrincipal.add(Sub1, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 90, -1, -1));
 
         BurbujaTexto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/kisspng-dialog-box-icon-painted-simple-dialog-box-5a808172ab8862.7497991815183711867026.png"))); // NOI18N
         FondoPrincipal.add(BurbujaTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 40, 730, 380));

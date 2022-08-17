@@ -38,8 +38,6 @@ public class Medicamento_ {
         this.Energia = Energia;
     }
 
-
-
     public int getTiempo() {
         return tiempo;
     }

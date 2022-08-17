@@ -42,13 +42,11 @@ public class JuegoNombre extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1280, 720));
         setResizable(false);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnSiguiente.setFont(new java.awt.Font("Ebrima", 0, 18)); // NOI18N
-        btnSiguiente.setForeground(new java.awt.Color(0, 0, 0));
         btnSiguiente.setText("JUGAR");
         btnSiguiente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -57,15 +55,13 @@ public class JuegoNombre extends javax.swing.JFrame {
         });
         jPanel1.add(btnSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 570, 130, 40));
 
-        txtNombre.setBackground(new java.awt.Color(255, 255, 255));
         txtNombre.setFont(new java.awt.Font("Ebrima", 0, 18)); // NOI18N
-        txtNombre.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 570, 250, 40));
 
-        sub1.setFont(new java.awt.Font("Ebrima", 1, 18)); // NOI18N
-        sub1.setForeground(new java.awt.Color(0, 0, 0));
-        sub1.setText("Hola! Puede escribir el nombre allí abajo");
-        jPanel1.add(sub1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, 400, 50));
+        sub1.setFont(new java.awt.Font("Eras Bold ITC", 1, 30)); // NOI18N
+        sub1.setForeground(new java.awt.Color(102, 0, 0));
+        sub1.setText("<html>Hola! Puedes escribir<p> el nombre allí abajo<html>");
+        jPanel1.add(sub1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 90, 400, 90));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/1.jpg"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
