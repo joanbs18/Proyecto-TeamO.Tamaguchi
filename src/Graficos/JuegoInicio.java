@@ -4,21 +4,66 @@
  */
 package Graficos;
 
+import java.applet.AudioClip;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+
+
+
+import javax.swing.JButton;
+
 /**
  *
  * @author joans
  */
 public class JuegoInicio extends javax.swing.JFrame {
 private int acumulador=0;
+private Clip clip;
+private String ruta;
+
     /**
      * Creates new form JuegoInicio
      */
-    public JuegoInicio() {
+    public JuegoInicio()  {
         initComponents();
       this.setResizable(false);
        ocultar();
+       ruta="/Music/";
+        sonido("audio");
+       
+       
+   
+      
+     
+      
+    }
+    private void sonido(String sonido){
+    try{
+    clip=AudioSystem.getClip();
+    clip.open(AudioSystem.getAudioInputStream(getClass().getResourceAsStream(this.ruta+sonido+".wav")));
+    clip.start();
+    } catch (LineUnavailableException ex) {
+        Logger.getLogger(JuegoInicio.class.getName()).log(Level.SEVERE, null, ex);
+    } catch (UnsupportedAudioFileException ex) {
+        Logger.getLogger(JuegoInicio.class.getName()).log(Level.SEVERE, null, ex);
+    } catch (IOException ex) {
+        Logger.getLogger(JuegoInicio.class.getName()).log(Level.SEVERE, null, ex);
     }
     
+    }
     private void ocultar(){ //OCULTA LOS SUBTITULOS
        this.Sub1.setVisible(true);
        this.Sub2.setVisible(false);
@@ -106,13 +151,18 @@ private int acumulador=0;
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
-       acumulador++;
+       
+        acumulador++;
        if (acumulador==1){
        this.Sub1.setVisible(false);
        this.Sub2.setVisible(true);
        this.Sub3.setVisible(false);
        this.Sub4.setVisible(false);
+       sonido("audio");
+       
        }
+        
+      
        if(acumulador==2){
        this.Sub2.setVisible(false);
        this.Sub3.setVisible(true);
@@ -176,4 +226,35 @@ private int acumulador=0;
     private javax.swing.JLabel Sub4;
     private javax.swing.JButton btnSiguiente;
     // End of variables declaration//GEN-END:variables
+
+ static int conta;
+  public void tiempoOcultar(JButton boton, int time) {
+        int tiempo = time * 10000;
+        Timer timer;
+        TimerTask timerTask;
+        timerTask = new TimerTask() {
+
+            @Override
+            public void run() {
+                switch (conta) {
+                    case 0:
+                        conta++;
+                        boton.setVisible(false);
+                        break;
+                    case 1:
+                        conta = 0;
+                        boton.setVisible(true);
+                        cancel();
+                        break;
+
+                }
+
+            }
+
+        };
+
+        timer = new Timer();
+        timer.schedule(timerTask, 0, tiempo);
+    }
 }
+

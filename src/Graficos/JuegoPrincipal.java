@@ -8,6 +8,7 @@ import Actividades.AgenteP;
 import Actividades.Bailar;
 import Actividades.Correr;
 import Actividades.Diversion;
+import Actividades.Dormir;
 import Actividades.Ejercicio;
 import Alimentación.Algas;
 import Alimentación.Camarones;
@@ -22,7 +23,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import tamagotchi.Cronometro;
 import tamagotchi.Ornitorrinco;
-import Medicina.Medicamento_;
+import Medicina.Medicamento;
 
 /**
  *
@@ -31,7 +32,7 @@ import Medicina.Medicamento_;
 public class JuegoPrincipal extends javax.swing.JFrame {
 
     //BTN MEDICINA
-    Medicamento_ med;
+    Medicamento med;
     int seg;
 //ATRIBUTOS------------------------------------
 
@@ -56,6 +57,8 @@ public class JuegoPrincipal extends javax.swing.JFrame {
     Diversion di = new Diversion();
     Ejercicio ej = new Ejercicio();
     AgenteP agen = new AgenteP();
+    Dormir dor=new Dormir();
+   Medicamento med=new Medicamento();
 
 //---------------------------------------------
     /**
@@ -142,6 +145,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         pNecesidad = new javax.swing.JProgressBar();
+        btnDormir = new javax.swing.JButton();
         btnMedicamento = new javax.swing.JButton();
         btnBailar = new javax.swing.JButton();
         btnCorrer = new javax.swing.JButton();
@@ -166,6 +170,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
         fondoNoche = new javax.swing.JLabel();
         PCorriendo = new javax.swing.JLabel();
         PDivertirse = new javax.swing.JLabel();
+        PDurmiendo = new javax.swing.JLabel();
         PBailando = new javax.swing.JLabel();
         PEjercicio = new javax.swing.JLabel();
         PAgenteP = new javax.swing.JLabel();
@@ -182,6 +187,16 @@ public class JuegoPrincipal extends javax.swing.JFrame {
         pNecesidad.setString("NECESIDAD");
         pNecesidad.setStringPainted(true);
         jPanel1.add(pNecesidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 10, 170, 20));
+
+        btnDormir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/DORMIRBT1.png"))); // NOI18N
+        btnDormir.setContentAreaFilled(false);
+        btnDormir.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/DORMIRBT2.png"))); // NOI18N
+        btnDormir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDormirActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnDormir, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 60, -1, -1));
 
         btnMedicamento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/MEDICAMENTOBTN1.png"))); // NOI18N
         btnMedicamento.setContentAreaFilled(false);
@@ -342,6 +357,9 @@ public class JuegoPrincipal extends javax.swing.JFrame {
         PDivertirse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/PerryDivertiendose.gif"))); // NOI18N
         jPanel1.add(PDivertirse, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, -4, 1280, 720));
 
+        PDurmiendo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/perryDurmiendoo.png"))); // NOI18N
+        jPanel1.add(PDurmiendo, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, -4, 1280, 720));
+
         PBailando.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/PerryBailando.gif"))); // NOI18N
         jPanel1.add(PBailando, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -459,6 +477,13 @@ public class JuegoPrincipal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnMedicamentoActionPerformed
 
+    private void btnDormirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDormirActionPerformed
+    or.setEnergía(dor.getEnergia());
+    dor.tiempoOcultar(this.btnDormir, dor.getTiempo());
+    tiempoOcultarA(this.PDurmiendo,6);
+    barrasBar();
+    }//GEN-LAST:event_btnDormirActionPerformed
+
     private void tiempoOcultarA(JLabel label, int time) {
         int tiempo = time * 1000;
         Timer timer;
@@ -533,6 +558,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel PBailando;
     private javax.swing.JLabel PCorriendo;
     private javax.swing.JLabel PDivertirse;
+    private javax.swing.JLabel PDurmiendo;
     private javax.swing.JLabel PEjercicio;
     private javax.swing.JButton btnAgenteP;
     private javax.swing.JButton btnAlgas;
@@ -540,6 +566,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnCamarones;
     private javax.swing.JButton btnCorrer;
     private javax.swing.JButton btnDivertirse;
+    private javax.swing.JButton btnDormir;
     private javax.swing.JButton btnEjercicio;
     private javax.swing.JButton btnMedicamento;
     private javax.swing.JButton btnMoluzco;
@@ -580,6 +607,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
                         tipoEdad(contadorDías);
                         bajasEnHambre(contaS);
                         irAlBaño(contadorBaño);
+                        finDelJuego();
                         
                         
 
@@ -650,7 +678,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
     //BTN Medicamento:
     private void efectoDeMedicamento() {
         if (or.getAburrimiento() <= 20) {
-            or.setAburrimiento(45);
+            or.setAburrimiento();
         }
         if (or.getEnergía() <= 20) {
             or.setEnergía(45);
@@ -660,27 +688,11 @@ public class JuegoPrincipal extends javax.swing.JFrame {
         }
     }
 
-    /*
-    // MEDICAMENTO:
-     public void iniciar(){
-        timer.start();
+    private void finDelJuego(){
+    if (!or.isSalud()){
+    this.deshabilitarBotones();
+    JOptionPane.showMessageDialog(null, "Tu mascota ha muerto");
     }
-     
-    private void contar(){
-        seg++;
-        if(seg==5||seg==9||seg==10){
-            sema.cambiar();
-            this.mostrar();
-        }
-        if(seg==10){
-        seg=0;
-        }
     }
-    
-    private void mostrar(){
-        this.btnrojo.setEnabled(sema.isRoja());
-        
-    }
-     */
 }
     //TERMINA BTN MEDICAMENTO

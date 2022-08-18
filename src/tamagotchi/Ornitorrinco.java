@@ -30,9 +30,8 @@ public class Ornitorrinco {
         Aburrimiento = 0;
         Energía = 100;
         Hambre = 0;
-        Dormir=false;
-        Necesidad=0;
-       
+        Dormir = false;
+        Necesidad = 0;
 
     }
 
@@ -41,25 +40,24 @@ public class Ornitorrinco {
     }
 
     public void setNecesidad(int Necesidad) {
-        this.Necesidad = Necesidad;
+        if (this.Necesidad >= 100) {
+            this.Salud = false;
+        } else {
+            this.Necesidad += Necesidad;
+        }
     }
 
-    
-    
     public boolean isDormir() {
         return Dormir;
     }
 
     public void setDormir(boolean Dormir) {
-        if(Dormir){
-        this.Energía+=50;
+        if (Dormir) {
+            this.Energía += 50;
         }
         this.Dormir = false;
-        
-      
+
     }
-
-
 
     public boolean isSalud() {
         return Salud;
@@ -69,26 +67,24 @@ public class Ornitorrinco {
         this.Salud = Salud;
     }
 
-   
-
     public void setAburrimiento(int Aburrimiento) {
-        if(this.Aburrimiento>=100){
-        this.Aburrimiento=100;
-        }else{
-        this.Aburrimiento += Aburrimiento;
+        if (this.Aburrimiento >= 100) {
+            this.Salud = false;
+            this.Aburrimiento = 100;
+        } else {
+            this.Aburrimiento += Aburrimiento;
         }
-        
+
     }
 
     public void setEnergía(int Energía) {
         if (this.Energía < 0) {
             this.Energía = 0;
+            this.Salud = false;
         } else {
             this.Energía -= Energía;
         }
     }
-
-   
 
     public int getAburrimiento() {
         return Aburrimiento;
@@ -105,12 +101,15 @@ public class Ornitorrinco {
     public void setHambre(int Hambre) {
         if (this.Hambre < 0) {
             this.Hambre = 0;
+            this.Salud = false;
         } else {
             this.Hambre += Hambre;
         }
     }
 
-   
+    public String getNombre() {
+        return Nombre;
+    }
 
     public String[] getEdad() {
         return Cedad;
@@ -128,42 +127,42 @@ public class Ornitorrinco {
         }
     }
 
-  
-
-public void subidaEnergía(int Energía){ //En caso de comer o alguna cosa que suba energía
-if(this.Energía>=100){
-this.Energía=100;
-JOptionPane.showMessageDialog(null, "Esta al maximo de energía");
-}else{
-this.Energía+=Energía;
-}
-}
-public void bajarAburrimiento(int menosaAburrimiento){
-      if(this.Aburrimiento<0){
-        this.Aburrimiento=0;
-        }else{
-        this.Aburrimiento -= Aburrimiento;
+    public void subidaEnergía(int Energía) { //En caso de comer o alguna cosa que suba energía
+        if (this.Energía >= 100) {
+            this.Energía = 100;
+            JOptionPane.showMessageDialog(null, "Esta al maximo de energía");
+        } else {
+            this.Energía += Energía;
         }
-}
-public void subirEnergía(int Energía){
-if(this.Energía>=100){
-this.Energía=100;
-}else{
-this.Energía+=Energía;
-}
-}
+    }
 
-public void EstadoSalud(){
-if (this.Hambre>=100){
-this.Salud=false;
-}
-if (this.Aburrimiento>=100){
-this.Salud=false;
-}
-if (this.Energía<=0){
-this.Salud=false;
-}
-}
+    public void bajarAburrimiento(int menosaAburrimiento) {
+        if (this.Aburrimiento < 0) {
+            this.Aburrimiento = 0;
 
+        } else {
+            this.Aburrimiento -= Aburrimiento;
+        }
+    }
+
+    public void subirEnergía(int Energía) {
+        if (this.Energía >= 100) {
+            this.Energía = 100;
+        } else {
+            this.Energía += Energía;
+        }
+    }
+
+    public void EstadoSalud() {
+        if (this.Hambre >= 100) {
+            this.Salud = false;
+        }
+        if (this.Aburrimiento >= 100) {
+            this.Salud = false;
+        }
+        if (this.Energía <= 0) {
+            this.Salud = false;
+        }
+    }
 
 }
