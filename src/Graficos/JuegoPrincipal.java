@@ -57,8 +57,8 @@ public class JuegoPrincipal extends javax.swing.JFrame {
     Diversion di = new Diversion();
     Ejercicio ej = new Ejercicio();
     AgenteP agen = new AgenteP();
-    Dormir dor=new Dormir();
-   Medicamento medi=new Medicamento();
+    Dormir dor = new Dormir();
+    Medicamento medi = new Medicamento();
 
 //---------------------------------------------
     /**
@@ -71,7 +71,8 @@ public class JuegoPrincipal extends javax.swing.JFrame {
         barrasBar();
         cron = new Cronometro();
         timer.start();
-        this.btnNecesidad.setVisible(false);
+        this.tEdad.setText(or.EdadMascota(0));
+ 
 
     }
     javax.swing.Timer timer = new javax.swing.Timer(1000, (ActionEvent e) -> {
@@ -98,6 +99,9 @@ public class JuegoPrincipal extends javax.swing.JFrame {
         this.btnCorrer.setEnabled(false);
         this.btnDivertirse.setEnabled(false);
         this.btnEjercicio.setEnabled(false);
+        this.btnDormir.setEnabled(false);
+        this.btnNecesidad.setVisible(false);
+        this.btnMedicamento.setVisible(false);
         //-------------------------jlabel-----------------------
         this.Bebe.setVisible(false);
         this.Joven.setVisible(false);
@@ -107,6 +111,8 @@ public class JuegoPrincipal extends javax.swing.JFrame {
         this.PCorriendo.setVisible(false);
         this.PDivertirse.setVisible(false);
         this.PEjercicio.setVisible(false);
+        this.PDurmiendo.setVisible(false);
+        this.Adulto.setVisible(false);
     }
 
     private void habilitarBotones(int contadorDías) {
@@ -130,7 +136,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
         }
         if (contadorDías == 12) {
             this.btnPez.setEnabled(true);
-            
+
         }
 
     }
@@ -145,7 +151,9 @@ public class JuegoPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        Adulto = new javax.swing.JLabel();
         pNecesidad = new javax.swing.JProgressBar();
+        Edad = new javax.swing.JLabel();
         btnNecesidad = new javax.swing.JButton();
         btnDormir = new javax.swing.JButton();
         btnMedicamento = new javax.swing.JButton();
@@ -182,6 +190,9 @@ public class JuegoPrincipal extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        Adulto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/per.png"))); // NOI18N
+        jPanel1.add(Adulto, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, -10, -1, -1));
+
         pNecesidad.setBackground(new java.awt.Color(51, 255, 51));
         pNecesidad.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
         pNecesidad.setForeground(new java.awt.Color(255, 255, 255));
@@ -189,6 +200,11 @@ public class JuegoPrincipal extends javax.swing.JFrame {
         pNecesidad.setString("NECESIDAD");
         pNecesidad.setStringPainted(true);
         jPanel1.add(pNecesidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 10, 170, 20));
+
+        Edad.setFont(new java.awt.Font("Ebrima", 1, 18)); // NOI18N
+        Edad.setForeground(new java.awt.Color(255, 255, 255));
+        Edad.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jPanel1.add(Edad, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 130, 30));
 
         btnNecesidad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/CACABT1.png"))); // NOI18N
         btnNecesidad.setContentAreaFilled(false);
@@ -277,6 +293,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
         jPanel1.add(Joven, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 340, 730, 350));
 
         tEdad.setFont(new java.awt.Font("Ebrima", 1, 18)); // NOI18N
+        tEdad.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(tEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 120, 30));
 
         Bebe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/bebe (1).gif"))); // NOI18N
@@ -408,7 +425,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCamaronesActionPerformed
 
     private void btnRenacuajoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRenacuajoActionPerformed
-        or.setHambre(ren.getCantidadDeAlimentación());
+        or.quitarHambre(ren.getCantidadDeAlimentación());
         ren.tiempoOcultar(this.btnRenacuajo, ren.getTiempo());
         or.subirEnergía(ren.getEnergia());
         barrasBar();
@@ -448,7 +465,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBailarActionPerformed
 
     private void btnCorrerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCorrerActionPerformed
-      
+
         co.tiempoOcultar(this.btnCorrer, co.getTiempo());
         or.setEnergía(co.getEnergía());
         or.bajarAburrimiento(co.getAburrimiento());
@@ -466,7 +483,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDivertirseActionPerformed
 
     private void btnEjercicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEjercicioActionPerformed
-     
+
         ej.tiempoOcultar(this.btnEjercicio, ej.getTiempo());
         or.setEnergía(ej.getEnergía());
         or.bajarAburrimiento(ej.getAburrimiento());
@@ -491,18 +508,19 @@ public class JuegoPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMedicamentoActionPerformed
 
     private void btnDormirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDormirActionPerformed
-    or.setEnergía(dor.getEnergia());
-    dor.tiempoOcultar(this.btnDormir, dor.getTiempo());
-    tiempoOcultarA(this.PDurmiendo,6);
-    barrasBar();
+        or.subirEnergía(dor.getEnergia());
+        dor.tiempoOcultar(this.btnDormir, dor.getTiempo());
+        tiempoOcultarA(this.PDurmiendo, 6);
+        barrasBar();
     }//GEN-LAST:event_btnDormirActionPerformed
 
     private void btnNecesidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNecesidadActionPerformed
-      or.bajarNecesidad();
-      this.btnNecesidad.setVisible(false);
+        or.bajarNecesidad();
+        this.btnNecesidad.setVisible(false);
+        barrasBar();
     }//GEN-LAST:event_btnNecesidadActionPerformed
 
-    private void tiempoOcultarA(JLabel label, int time) {
+    private void tiempoOcultarA(JLabel label, int time) { // OCULTA LAS IMAGENES DE LAS ACTIVIDADES.GIF
         int tiempo = time * 1000;
         Timer timer;
         TimerTask timerTask;
@@ -567,8 +585,10 @@ public class JuegoPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Adulto;
     private javax.swing.JLabel Bebe;
     private javax.swing.JLabel Brilo;
+    private javax.swing.JLabel Edad;
     private javax.swing.JLabel Huevo;
     private javax.swing.JLabel JEnfermo;
     private javax.swing.JLabel Joven;
@@ -627,15 +647,13 @@ public class JuegoPrincipal extends javax.swing.JFrame {
                         bajasEnHambre(contaS);
                         irAlBaño(contadorBaño);
                         finDelJuego();
-                        
-                        
 
                         break;
                     case 1:
                         cont = 0;
                         label1.setVisible(false);
                         label2.setVisible(true);
-
+                        finDelJuego();
                         break;
 
                 }
@@ -649,6 +667,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
     }
 
     private void tipoEdad(int contadorDías) {//MUESTRA SI ES HUEVO,JOVEN,ADULTO
+        this.Edad.setText("Edad: "+contadorDías+" Años");
         if (contadorDías == 3) {
             this.Huevo.setVisible(false);
             this.Brilo.setVisible(false);
@@ -663,15 +682,17 @@ public class JuegoPrincipal extends javax.swing.JFrame {
         }
         if (contadorDías == 15) {
             this.Joven.setVisible(false);
+            this.Adulto.setVisible(true);
             this.tEdad.setText(or.EdadMascota(3));
         }
+        
     }
 
     private void bajasEnHambre(int contador) {
         if (contador == 3) {
             contaS = 0;
             or.setHambre(15);
-         
+
             barrasBar();
             System.out.println(or.getHambre());
             if (or.getHambre() >= 90) {
@@ -681,19 +702,27 @@ public class JuegoPrincipal extends javax.swing.JFrame {
         }
 
     }
-    private void irAlBaño(int conta){
-    if (conta==5){
-    or.setNecesidad(50);
-    or.setAburrimiento(30);
-    barrasBar();
-    contadorBaño=0;
-    if(or.getNecesidad()>0){
-    this.btnNecesidad.setVisible(true);
-    }
-    }
-    }
 
-  
+    private void irAlBaño(int conta) {
+        if (conta == 1) {
+            if (or.isEstado()) {
+                this.JEnfermo.setVisible(false);
+            } else {
+                this.JEnfermo.setVisible(true);
+            }
+        }
+        if (conta == 2) {
+            or.setNecesidad(10);
+            or.setAburrimiento(15);
+            or.setEnergía(5);
+            barrasBar();
+            contadorBaño = 0;
+            if (or.getNecesidad() > 0) {
+                this.btnNecesidad.setVisible(true);
+            }
+        }
+
+    }   
 
     //..................................................
     //BTN Medicamento:
@@ -709,12 +738,17 @@ public class JuegoPrincipal extends javax.swing.JFrame {
         }
     }
 
-    private void finDelJuego(){
-    if (!or.isSalud()){
-    this.deshabilitarBotones();
-    JOptionPane.showMessageDialog(null, "Tu mascota ha muerto");
+    private void finDelJuego() {
+        if (!or.isSalud()) {
+            this.deshabilitarBotones();
+            JOptionPane.showMessageDialog(null, "Tu mascota ha muerto");
+            JOptionPane.showMessageDialog(null, "Tiempo Jugado "+ cron.toString());
+            if(this.contadorDías<20){
+            JOptionPane.showMessageDialog(null, "Eres demasiado mal cuidado");
+            }else if(this.contadorDías>20)
+                JOptionPane.showMessageDialog(null, "Eres un buen cuidador ");
+        }
     }
-    }
-    
+
 }
     //TERMINA BTN MEDICAMENTO

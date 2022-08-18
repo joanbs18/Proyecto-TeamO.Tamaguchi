@@ -4,22 +4,11 @@
  */
 package Graficos;
 
-import java.applet.AudioClip;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
+
 
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
+
 
 
 
@@ -31,8 +20,7 @@ import javax.swing.JButton;
  */
 public class JuegoInicio extends javax.swing.JFrame {
 private int acumulador=0;
-private Clip clip;
-private String ruta;
+
 
     /**
      * Creates new form JuegoInicio
@@ -41,8 +29,7 @@ private String ruta;
         initComponents();
       this.setResizable(false);
        ocultar();
-       ruta="/Music/";
-        sonido("audio");
+      
        
        
    
@@ -50,20 +37,7 @@ private String ruta;
      
       
     }
-    private void sonido(String sonido){
-    try{
-    clip=AudioSystem.getClip();
-    clip.open(AudioSystem.getAudioInputStream(getClass().getResourceAsStream(this.ruta+sonido+".wav")));
-    clip.start();
-    } catch (LineUnavailableException ex) {
-        Logger.getLogger(JuegoInicio.class.getName()).log(Level.SEVERE, null, ex);
-    } catch (UnsupportedAudioFileException ex) {
-        Logger.getLogger(JuegoInicio.class.getName()).log(Level.SEVERE, null, ex);
-    } catch (IOException ex) {
-        Logger.getLogger(JuegoInicio.class.getName()).log(Level.SEVERE, null, ex);
-    }
-    
-    }
+   
     private void ocultar(){ //OCULTA LOS SUBTITULOS
        this.Sub1.setVisible(true);
        this.Sub2.setVisible(false);
@@ -158,7 +132,7 @@ private String ruta;
        this.Sub2.setVisible(true);
        this.Sub3.setVisible(false);
        this.Sub4.setVisible(false);
-       sonido("audio");
+      
        
        }
         

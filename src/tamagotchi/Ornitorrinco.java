@@ -4,9 +4,6 @@
  */
 package tamagotchi;
 
-import java.util.Timer;
-import java.util.TimerTask;
-import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 /**
@@ -21,6 +18,7 @@ public class Ornitorrinco {
     private int Energía;
     private int Necesidad;
     private int Hambre;
+    private boolean Estado;
     private boolean Dormir;
     private String[] Cedad = {"Huevo", "Bebe", "Joven", "Adulto"};
 
@@ -32,7 +30,16 @@ public class Ornitorrinco {
         Hambre = 0;
         Dormir = false;
         Necesidad = 0;
+        Estado = true;
 
+    }
+
+    public boolean isEstado() {
+        return Estado;
+    }
+
+    public void setEstado(boolean Estado) {
+        this.Estado = Estado;
     }
 
     public int getNecesidad() {
@@ -45,6 +52,11 @@ public class Ornitorrinco {
         } else {
             this.Necesidad += Necesidad;
         }
+        if (this.Necesidad >= 80) {
+            this.Estado = false;
+           
+        }
+        
     }
 
     public boolean isDormir() {
@@ -70,19 +82,30 @@ public class Ornitorrinco {
     public void setAburrimiento(int Aburrimiento) {
         if (this.Aburrimiento >= 100) {
             this.Salud = false;
-            this.Aburrimiento = 100;
         } else {
             this.Aburrimiento += Aburrimiento;
         }
+        if (this.Aburrimiento >= 80) {
+            this.Estado = false;
+           
+        }
+       
 
     }
 
     public void setEnergía(int Energía) {
         if (this.Energía < 0) {
             this.Energía = 0;
-            this.Salud = false;
+           
         } else {
             this.Energía -= Energía;
+        }
+        if (this.Energía <= 20) {
+            this.Estado = false;
+            
+        }
+        if (this.Energía<=0){
+        this.Salud = false;
         }
     }
 
@@ -101,9 +124,17 @@ public class Ornitorrinco {
     public void setHambre(int Hambre) {
         if (this.Hambre < 0) {
             this.Hambre = 0;
-            this.Salud = false;
+            
         } else {
             this.Hambre += Hambre;
+        }
+        if (this.Hambre >= 80) {
+            this.Estado = false;
+       
+            
+        }
+        if (this.Hambre>=100){
+        this.Salud = false;
         }
     }
 
@@ -127,14 +158,12 @@ public class Ornitorrinco {
         }
     }
 
-    
-
     public void bajarAburrimiento(int menosaAburrimiento) {
         if (this.Aburrimiento < 0) {
             this.Aburrimiento = 0;
 
         } else {
-            this.Aburrimiento -= Aburrimiento;
+            this.Aburrimiento -= menosaAburrimiento;
         }
     }
 
@@ -145,11 +174,13 @@ public class Ornitorrinco {
             this.Energía += Energía;
         }
     }
-public void bajarNecesidad(){
-if (this.Necesidad>0){
-this.Necesidad=0;
-}
-}
+
+    public void bajarNecesidad() {
+        if (this.Necesidad > 0) {
+            this.Necesidad = 0;
+        }
+    }
+
     public void EstadoSalud() {
         if (this.Hambre >= 100) {
             this.Salud = false;
@@ -161,5 +192,7 @@ this.Necesidad=0;
             this.Salud = false;
         }
     }
+
+   
 
 }

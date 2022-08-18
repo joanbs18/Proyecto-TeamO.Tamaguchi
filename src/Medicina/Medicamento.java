@@ -24,7 +24,7 @@ public class Medicamento {
 public Medicamento() {
         this.Nombre = "Jarabe de Alga";
         this.Energia = 45;
-        this.tiempo = 100;
+        this.tiempo = 5;
         this.Necesidad = 45;
         this.Hambre = 45;
         Aburrimiento=45;
@@ -68,7 +68,7 @@ public Medicamento() {
     static int conta;
 
     public void tiempoOcultar(JButton boton, int time) {
-        int tiempo = time * 10000;
+        int tiempo = time * 60000;
         Timer timer;
         TimerTask timerTask;
         timerTask = new TimerTask() {

@@ -11,7 +11,7 @@ package Actividades;
 public class Ejercicio extends Bailar {
 
     public Ejercicio() {
-        super(40, 20, 50);
+        super(40, 20, 100);
     }
     
 }

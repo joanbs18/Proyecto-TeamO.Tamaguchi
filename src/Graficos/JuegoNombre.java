@@ -4,6 +4,9 @@
  */
 package Graficos;
 
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -11,13 +14,15 @@ import javax.swing.JOptionPane;
  * @author joans
  */
 public class JuegoNombre extends javax.swing.JFrame {
-
+private String Nom;
     /**
      * Creates new form JuegoNombre
      */
     public JuegoNombre() {
         initComponents();
         this.setResizable(false);
+        this.sub1.setVisible(true);
+        this.sub2.setVisible(false);
         
         
     }
@@ -38,6 +43,7 @@ public class JuegoNombre extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         btnSiguiente = new javax.swing.JButton();
         txtNombre = new javax.swing.JTextField();
+        sub2 = new javax.swing.JLabel();
         sub1 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -56,7 +62,17 @@ public class JuegoNombre extends javax.swing.JFrame {
         jPanel1.add(btnSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 570, 130, 40));
 
         txtNombre.setFont(new java.awt.Font("Ebrima", 0, 18)); // NOI18N
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreActionPerformed(evt);
+            }
+        });
         jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 570, 250, 40));
+
+        sub2.setFont(new java.awt.Font("Eras Bold ITC", 1, 30)); // NOI18N
+        sub2.setForeground(new java.awt.Color(102, 0, 0));
+        sub2.setText("Cuida mucho a "+Nom);
+        jPanel1.add(sub2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 40, 510, 190));
 
         sub1.setFont(new java.awt.Font("Eras Bold ITC", 1, 30)); // NOI18N
         sub1.setForeground(new java.awt.Color(102, 0, 0));
@@ -83,10 +99,13 @@ public class JuegoNombre extends javax.swing.JFrame {
     private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
        JuegoPrincipal jp= new JuegoPrincipal();
         String usuario= this.txtNombre.getText();
+        Nom=this.txtNombre.getText();
         if(usuario.isEmpty()){
         JOptionPane.showMessageDialog(rootPane,"ERROR Sin Nombre"+JOptionPane.CANCEL_OPTION);
         }else{
-         JOptionPane.showMessageDialog(rootPane,"Cuida mucho a "+usuario);
+            JOptionPane.showMessageDialog(rootPane,"Cuida mucho a "+ Nom);
+        
+
          jp.setNombre(usuario);
          jp.setVisible(true);
          this.dispose();
@@ -94,6 +113,10 @@ public class JuegoNombre extends javax.swing.JFrame {
      
       txtNombre.requestFocus();
     }//GEN-LAST:event_btnSiguienteActionPerformed
+
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreActionPerformed
 
     /**
      * @param args the command line arguments
@@ -135,6 +158,7 @@ public class JuegoNombre extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel sub1;
+    private javax.swing.JLabel sub2;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }

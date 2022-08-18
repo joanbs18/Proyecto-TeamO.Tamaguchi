@@ -11,7 +11,7 @@ package Actividades;
 public class Diversion extends Bailar {
 
     public Diversion() {
-        super(15, 20, 40);
+        super(15, 20, 100);
     }
     
 }

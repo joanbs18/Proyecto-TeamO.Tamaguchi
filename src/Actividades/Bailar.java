@@ -58,7 +58,7 @@ public class Bailar {
     }
     static int conta;
  public void tiempoOcultar(JButton boton, int time) {
-        int tiempo = time * 10000;
+        int tiempo = time * 1000;
         Timer timer;
         TimerTask timerTask;
         timerTask = new TimerTask() {
@@ -71,9 +71,10 @@ public class Bailar {
                         boton.setEnabled(false);
                         break;
                     case 1:
+                        cancel();
                         conta = 0;
                         boton.setEnabled(true);
-                        cancel();
+                       
                         break;
 
                 }
