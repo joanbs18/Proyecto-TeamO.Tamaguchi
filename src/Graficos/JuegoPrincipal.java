@@ -58,7 +58,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
     Ejercicio ej = new Ejercicio();
     AgenteP agen = new AgenteP();
     Dormir dor=new Dormir();
-   Medicamento med=new Medicamento();
+   Medicamento medi=new Medicamento();
 
 //---------------------------------------------
     /**
@@ -71,6 +71,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
         barrasBar();
         cron = new Cronometro();
         timer.start();
+        this.btnNecesidad.setVisible(false);
 
     }
     javax.swing.Timer timer = new javax.swing.Timer(1000, (ActionEvent e) -> {
@@ -145,6 +146,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         pNecesidad = new javax.swing.JProgressBar();
+        btnNecesidad = new javax.swing.JButton();
         btnDormir = new javax.swing.JButton();
         btnMedicamento = new javax.swing.JButton();
         btnBailar = new javax.swing.JButton();
@@ -187,6 +189,16 @@ public class JuegoPrincipal extends javax.swing.JFrame {
         pNecesidad.setString("NECESIDAD");
         pNecesidad.setStringPainted(true);
         jPanel1.add(pNecesidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 10, 170, 20));
+
+        btnNecesidad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/CACABT1.png"))); // NOI18N
+        btnNecesidad.setContentAreaFilled(false);
+        btnNecesidad.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/CACABT2.png"))); // NOI18N
+        btnNecesidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNecesidadActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnNecesidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 280, -1, -1));
 
         btnDormir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/DORMIRBT1.png"))); // NOI18N
         btnDormir.setContentAreaFilled(false);
@@ -389,7 +401,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
 ///OCULTA EL BOTON DE CAMARONES
         or.quitarHambre(cam.getCantidadDeAlimentación());
         cam.tiempoOcultar(this.btnCamarones, cam.getTiempo());
-        or.subidaEnergía(cam.getEnergia());
+        or.subirEnergía(cam.getEnergia());
         barrasBar();
 
 
@@ -398,7 +410,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
     private void btnRenacuajoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRenacuajoActionPerformed
         or.setHambre(ren.getCantidadDeAlimentación());
         ren.tiempoOcultar(this.btnRenacuajo, ren.getTiempo());
-        or.subidaEnergía(ren.getEnergia());
+        or.subirEnergía(ren.getEnergia());
         barrasBar();
     }//GEN-LAST:event_btnRenacuajoActionPerformed
 
@@ -406,20 +418,20 @@ public class JuegoPrincipal extends javax.swing.JFrame {
 
         or.quitarHambre(al.getCantidadDeAlimentación());
         al.tiempoOcultar(btnPez, al.getTiempo());
-        or.subidaEnergía(al.getEnergia());
+        or.subirEnergía(al.getEnergia());
         barrasBar();
     }//GEN-LAST:event_btnAlgasActionPerformed
 
     private void btnMoluzcoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoluzcoActionPerformed
         or.quitarHambre(mol.getCantidadDeAlimentación());
         mol.tiempoOcultar(this.btnMoluzco, mol.getTiempo());
-        or.subidaEnergía(mol.getEnergia());
+        or.subirEnergía(mol.getEnergia());
         barrasBar();
     }//GEN-LAST:event_btnMoluzcoActionPerformed
 
     private void btnPezActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPezActionPerformed
         or.quitarHambre(pez.getCantidadDeAlimentación());
-        or.subidaEnergía(pez.getEnergia());
+        or.subirEnergía(pez.getEnergia());
         pez.tiempoOcultar(this.btnPez, pez.getTiempo());
         barrasBar();
 
@@ -473,6 +485,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
 
     private void btnMedicamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMedicamentoActionPerformed
         efectoDeMedicamento();
+        medi.tiempoOcultar(this.btnMedicamento, medi.getTiempo());
         barrasBar();
 
     }//GEN-LAST:event_btnMedicamentoActionPerformed
@@ -483,6 +496,11 @@ public class JuegoPrincipal extends javax.swing.JFrame {
     tiempoOcultarA(this.PDurmiendo,6);
     barrasBar();
     }//GEN-LAST:event_btnDormirActionPerformed
+
+    private void btnNecesidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNecesidadActionPerformed
+      or.bajarNecesidad();
+      this.btnNecesidad.setVisible(false);
+    }//GEN-LAST:event_btnNecesidadActionPerformed
 
     private void tiempoOcultarA(JLabel label, int time) {
         int tiempo = time * 1000;
@@ -570,6 +588,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnEjercicio;
     private javax.swing.JButton btnMedicamento;
     private javax.swing.JButton btnMoluzco;
+    private javax.swing.JButton btnNecesidad;
     private javax.swing.JButton btnPez;
     private javax.swing.JButton btnRenacuajo;
     private javax.swing.JLabel fondoDia;
@@ -668,7 +687,9 @@ public class JuegoPrincipal extends javax.swing.JFrame {
     or.setAburrimiento(30);
     barrasBar();
     contadorBaño=0;
-    
+    if(or.getNecesidad()>0){
+    this.btnNecesidad.setVisible(true);
+    }
     }
     }
 
@@ -678,13 +699,13 @@ public class JuegoPrincipal extends javax.swing.JFrame {
     //BTN Medicamento:
     private void efectoDeMedicamento() {
         if (or.getAburrimiento() <= 20) {
-            or.setAburrimiento();
+            or.bajarAburrimiento(medi.getAburrimiento());
         }
         if (or.getEnergía() <= 20) {
-            or.setEnergía(45);
+            or.subirEnergía(medi.getEnergia());
         }
         if (or.getHambre() <= 20) {
-            or.setHambre(45);
+            or.quitarHambre(medi.getHambre());
         }
     }
 
@@ -694,5 +715,6 @@ public class JuegoPrincipal extends javax.swing.JFrame {
     JOptionPane.showMessageDialog(null, "Tu mascota ha muerto");
     }
     }
+    
 }
     //TERMINA BTN MEDICAMENTO

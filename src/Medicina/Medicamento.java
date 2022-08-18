@@ -19,6 +19,7 @@ public class Medicamento {
     private int Energia;
     private int tiempo;
     private int Necesidad;
+    private int Aburrimiento;
     
 public Medicamento() {
         this.Nombre = "Jarabe de Alga";
@@ -26,8 +27,18 @@ public Medicamento() {
         this.tiempo = 100;
         this.Necesidad = 45;
         this.Hambre = 45;
+        Aburrimiento=45;
 
     }
+
+    public int getAburrimiento() {
+        return Aburrimiento;
+    }
+
+    public void setAburrimiento(int Aburrimiento) {
+        this.Aburrimiento = Aburrimiento;
+    }
+
     public String getNombre() {
         return Nombre;
     }
